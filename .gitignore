@@ -1,0 +1,5 @@
+# boiler-plate next.js files
+/.next
+
+# ignore dependencies
+/node_modules
