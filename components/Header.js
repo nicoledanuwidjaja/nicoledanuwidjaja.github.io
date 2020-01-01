@@ -7,34 +7,82 @@ const linkStyle = {
 const Header = () => (
 	<>
 		<div className="navbar">
-			<h1>Nicole Danuwidjaja</h1>
-				<div className="navpages">
-				   <Link className="navlink" href="/">
-				      <a style={linkStyle}>Home</a>
-				   </Link>
-				   <Link className="navlink" href="/about">
-				      <a style={linkStyle}>About</a>
-				   </Link>
-				</div>
+			<div className="navhead">
+				<h1>Nicole Danuwidjaja</h1>
+			</div>
+			<div className="social">
+				<a href="https://github.com/nicoledanuwidjaja"><i className="fa fa-github fa-lg"/></a>
+			</div>
+			<div className="navpages">
+			   <Link href="/">
+			      <a className="navlink" style={linkStyle}>Home</a>
+			   </Link>
+			   <Link href="/about">
+			      <a className="navlink" style={linkStyle}>About</a>
+			   </Link>
+			</div>
 		</div>
 
 		<style jsx global>{`
-			h1, h2, a {
-				font-family: 'Arial';
+			body {
+				background-color: #00ACEE;
 			}
 
 			.navbar {
+				font-family: 'Arial';
 				display: flex;
-				flex-direction: row;
+				flex-direction: column;
 				align-items: center;
-				width: auto;
-				padding: 20px;
-				border: 1px solid #DDD;
-				background-color: lightskyblue;
+				width: 100%;
+				background-color: #00ACEE;
+				height: 35vh;
+			}
+
+			.navbar a {
+				color: white;
+			}
+
+			.navhead h1 {
+				font-size: 50pt;
+			}
+
+			.navhead {
+				padding: 1%;
+				color: white;
+				font-size: 35pt;
+				opacity: 1;
+				animation-name: fadeInName;
+				animation-iteration-count: 1;
+				animation-timing-function: ease-in;
+				animation-duration: 1s;
+			}
+
+			@keyframes fadeInName {
+				0% {
+					opacity: 0;
+				}
+				100% {
+					opacity: 1;
+				}
 			}
 
 			.navpages {
-				margin-left: 70%;
+				flex-direction: column;
+				margin-left: 35%;
+			}
+
+			.navlink {
+				margin: 35px;
+				font-size: 14pt;
+			}
+
+			a {
+				text-decoration: none;
+				color: blue;
+			}
+
+			a:hover {
+				opacity: 0.6;
 			}
 		`}</style>
 	</>

@@ -7,16 +7,23 @@ export default function Project() {
 
   return (
     <Layout>
-      <h1>{router.query.id}</h1>
+      <div className="container">
+        <h1>{router.query.id}</h1>
 
-      <div className="markdown">
-        <Markdown
-          source={`### MARKDOWN test`}/>
+        <div className="markdown">
+          <Markdown
+            source={`### MARKDOWN test`}/>
+        </div>
       </div>
 
       <style jsx global>{`
-        .markdown {
-          font-family: 'Arial';
+        .container {
+          font-family: Arial;
+          height: 90vh;
+          background-color: white;
+          padding: 20px;
+          border-radius: 20px;
+          margin: 1%;
         }
 
         .markdown a {
@@ -33,6 +40,8 @@ export default function Project() {
           padding: 0;
           text-transform: uppercase;
         }
+
+
       `}</style>
     </Layout>
   );
