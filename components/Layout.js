@@ -9,7 +9,7 @@ const Layout = props => {
         <title>Nicole Danuwidjaja Portfolio</title>
         <meta name="viewport" content="initial-scale=1.0, width=device-width" />
       </Head>
-      <div class="template">
+      <div className="template">
       	<Header />
       	{props.children}
         <Footer />

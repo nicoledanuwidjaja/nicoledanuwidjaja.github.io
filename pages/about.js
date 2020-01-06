@@ -23,7 +23,8 @@ export default function About() {
           }
 
           .container {
-            background-color: white;
+            background-color: rgb(255, 255, 255, 0.2);
+            color: white;
             padding: 20px;
     				border-radius: 20px;
             margin: 1%;

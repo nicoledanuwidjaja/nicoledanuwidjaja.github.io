@@ -11,7 +11,6 @@ const Footer = () => (
         font-family: Arial;
         text-align: center;
         width: auto;
-				background-color: #00ACEE;
 				height: auto;
         padding: 20px;
 				border-radius: 20px;

@@ -4,15 +4,15 @@ import Layout from '../../components/Layout';
 
 export default function Project() {
   const router = useRouter();
+  const { project } = router.query;
 
   return (
     <Layout>
       <div className="container">
         <h1>{router.query.id}</h1>
-
         <div className="markdown">
           <Markdown
-            source={`### MARKDOWN test`}/>
+            source={`### This is filler text for now. Will be changed later to provide more detail of each project!`}/>
         </div>
       </div>
 
@@ -40,8 +40,6 @@ export default function Project() {
           padding: 0;
           text-transform: uppercase;
         }
-
-
       `}</style>
     </Layout>
   );

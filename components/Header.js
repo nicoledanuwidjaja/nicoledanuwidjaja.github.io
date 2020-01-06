@@ -25,7 +25,7 @@ const Header = () => (
 
 		<style jsx global>{`
 			body {
-				background-color: #00ACEE;
+				background-color: #B2003B;
 			}
 
 			.navbar {
@@ -34,7 +34,6 @@ const Header = () => (
 				flex-direction: column;
 				align-items: center;
 				width: 100%;
-				background-color: #00ACEE;
 				height: 35vh;
 			}
 
