@@ -2,81 +2,128 @@ import Layout from '../components/Layout';
 import Link from 'next/link';
 
 function getProjects() {
-  return [
-    { id: 'test1', title: 'ScrapeThePrez', technologies: 'Python, Firebase'},
-    { id: 'test2', title: 'Tricone', technologies: 'Arduino BLE'},
-    { id: 'test3', title: 'GarbaDoor', technologies: 'Python, React, Arduino'},
-    { id: 'test4', title: 'CanTrip', technologies: 'Java'},
-    { id: 'test5', title: 'Project 5', technologies: 'React'},
-    { id: 'test6', title: 'Project 6', technologies: 'React'}
-  ];
+    return [
+        {id: 'scrapetheprez', title: 'ScrapeThePrez', technologies: 'Python, Firebase'},
+        {id: 'tricone', title: 'Tricone', technologies: 'Arduino BLE'},
+        {id: 'garbadoor', title: 'GarbaDoor', technologies: 'Python, React, Arduino'},
+        {id: 'cantrip', title: 'CanTrip', technologies: 'Java'},
+        {id: 'test5', title: 'Project 5', technologies: 'React'},
+        {id: 'test6', title: 'Project 6', technologies: 'React'}
+    ];
 }
 
 function getJobs() {
-  return [
-    { title: 'Research Assistant', company: 'IoT Open Innovation Lab', dates: 'December 2018 - Present'}
-  ];
+    return [
+        {title: 'Web Developer', location: 'Boston, MA', company: 'WHOOP', dates: 'January 2020 - Present'},
+        {
+            title: 'Research Assistant',
+            location: 'Boston, MA',
+            company: 'IoT Open Innovation Lab',
+            dates: 'December 2018 - Present'
+        },
+        {
+            title: 'Coding Teacher',
+            location: 'Sacramento, CA',
+            company: 'St. Francis High School',
+            dates: 'June 2017 - July 2018'
+        }
+    ];
 }
 
-const PostLink = ({ project }) => (
-  <div className="project-title">
-    <li>
-      <Link href="/project/[id]" as={`/project/${project.id}`}>
-        <a>{project.title}</a>
-      </Link>
-      <div className="project-pic">
-
-      </div>
-      <p>{project.technologies}</p>
-    </li>
-  </div>
+const ProjectLink = ({project}) => (
+    <div className="project-title">
+        <li>
+            <Link href="/project/[id]" as={`/project/${project.id}`}>
+                <div className="project-pic"/>
+            </Link>
+            <div className="project-name">
+                <a>{project.title}</a>
+            </div>
+            <div className="project-caption">
+                <p>{project.technologies}</p>
+            </div>
+        </li>
+    </div>
 );
 
-Index.getInitialProps = async function() {
-  const data = getProjects();
-  console.log(`Data fetched: ${data.length}`);
-  return {
-    projects: data.map(entry => entry.project)
-  };
+const JobLink = ({job}) => (
+    <div className="job-title">
+        <li>
+            <div className="job-name">
+                <a>{job.title}</a>
+            </div>
+            <div className="job-caption">
+                <p>{job.technologies}</p>
+            </div>
+        </li>
+    </div>
+);
+
+Index.getInitialProps = async function () {
+    const projectData = getProjects();
+    const jobData = getJobs();
+    return {
+        projects: projectData.map(entry => entry.project),
+        jobs: jobData.map(entry => entry.job)
+    };
 };
 
 export default function Index() {
-   return (
-     <>
-     <div className="content">
-      <Layout>
-          <div className="hello container">
-            <h1>Hello there!</h1>
-            <p>I have always had my eye on business and technology, and now I can truly say that it is where my passions lie. I am part of the founding team working on branding, designing, programming, and pitching NUGig.tech: an up-and-coming platform that connects talented Northeastern students for hire in technology with local companies.</p>
-            <p>My greatest concentration is in Narwhal Company: an eCommerce business I started and have made over $40,000 in revenue selling technology gadgets, everyday commodities, educational resources, and private-label products. Through my business, I've partnered with unique individuals and businesses from across the globe including China, Israel, Hong Kong, New Zealand, Greece, and more. In addition, Narwhal Company also offers on-demand virtual assistant services including, but not limited to, transcriptions, copywriting, and data entry.</p>
-            <p>I love working on projects! What I love about my major is that the majority of my work, if not all of it, is completely team-oriented, which has allowed me to grow in my perspectives and development as an aspiring software developer and entrepreneur. Hence, since attending Northeastern, I have found immense interest with participating in hackathons at diverse universities, and I plan to broaden my coverage.</p>
-            <p>My other areas of interest include blockchain technology, education, robotics, web/mobile app development, chess, video editing, logo design, writing, and puzzles. </p>
-          </div>
+    return (
+        <>
+            <div className="content">
+                <Layout>
+                    <div className="hello container">
+                        <h1>Hello there!</h1>
+                        <p>I have always had my eye on business and technology, and now I can truly say that it is where
+                            my passions lie. I am part of the founding team working on branding, designing, programming,
+                            and pitching NUGig.tech: an up-and-coming platform that connects talented Northeastern
+                            students for hire in technology with local companies.</p>
+                        <p>My greatest concentration is in Narwhal Company: an eCommerce business I started and have
+                            made over $40,000 in revenue selling technology gadgets, everyday commodities, educational
+                            resources, and private-label products. Through my business, I've partnered with unique
+                            individuals and businesses from across the globe including China, Israel, Hong Kong, New
+                            Zealand, Greece, and more. In addition, Narwhal Company also offers on-demand virtual
+                            assistant services including, but not limited to, transcriptions, copywriting, and data
+                            entry.</p>
+                        <p>I love working on projects! What I love about my major is that the majority of my work, if
+                            not all of it, is completely team-oriented, which has allowed me to grow in my perspectives
+                            and development as an aspiring software developer and entrepreneur. Hence, since attending
+                            Northeastern, I have found immense interest with participating in hackathons at diverse
+                            universities, and I plan to broaden my coverage.</p>
+                    </div>
 
-          <div className="container">
-            <h1>Projects</h1>
-              <ul className="project-template">
-                {getProjects().map(project => (
-                  <div className="project">
-                    <PostLink key={project.id} project={project} />
-                  </div>
-                ))}
-              </ul>
-          </div>
-          <div className="container">
-            <h1>Experience</h1>
-            <ul className="job-template">
-              {getJobs().map(job => (
-                <p>Blahblahblah</p>
-              ))}
-            </ul>
-          </div>
-        </Layout>
-        </div>
+                    <div className="container">
+                        <h1>Projects</h1>
+                        <ul className="projects">
+                            {getProjects().map(project => (
+                                <div className="project">
+                                    <ProjectLink key={project.id} project={project}/>
+                                </div>
+                            ))}
+                        </ul>
+                    </div>
+                    <div className="container">
+                        <h1>Experience</h1>
+                        <ul className="job-template">
+                            {getJobs().map(job => (
+                                <div className="job">
+                                    <JobLink key={job.id} job={job}/>
+                                </div>
+                            ))}
+                        </ul>
+                    </div>
+                    <div className="container">
+                        <h1>Interests</h1>
+                        <p>blockchain technology, education, robotics, web/mobile app
+                            development, chess, video editing, logo design, writing, and puzzles</p>
+                    </div>
+                </Layout>
+            </div>
 
-        <style jsx global>{`
+            <style jsx global>{`
           .content {
-            font-family: 'Arial';
+            font-family: 'Roboto';
           }
 
           .title {
@@ -84,13 +131,14 @@ export default function Index() {
           }
 
           .container {
+            display: block;
             min-height: 90vh;
             height: auto;
-            background-color: rgb(255, 255, 255, 0.25);
-            padding: 20px;
-    				border-radius: 20px;
-            margin: 1%;
-            color: #fff;
+            padding: 16px;
+            border-radius: 8px;
+            border: 1px solid #B2003B;
+            margin: 2% 1% 2% 1%;
+            color: black;
           }
 
           .container li {
@@ -103,7 +151,7 @@ export default function Index() {
             margin-bottom: 5%;
           }
 
-          .project-template {
+          .projects { 
             padding: 3% 0% 3%;
             min-height: 90vh;
             height: auto;
@@ -115,17 +163,36 @@ export default function Index() {
             justify-items: center;
           }
 
-          .project-template a {
-            padding: 10px;
+          .projects a {
+            font-size: 30px;
           }
 
-          .project-template p {
+          .projects p {
             font-size: 12pt;
+          }
+          
+          .project-name {
+            padding: 2px;
+          }
+          
+          .project-caption {
+            display: inline-block;
+            background-color: yellow;
+            position: relative;
+            margin-top: 10%;
+            padding: 1% 2% 1% 2%; 
+            
+          }
+          
+          .project-caption p {
+            display: inline;
+            text-align: center;
+            font-size: 14px;
           }
 
           .project {
             border-radius: 10px;
-            background-color: pink;
+            background-color: #B2003B;
             padding: 3%;
             margin: 3%;
             width: 80%;
@@ -135,7 +202,7 @@ export default function Index() {
           }
 
           .project:hover {
-            background-color: hotpink;
+            background-color: pink;
             padding-top: 2%;
             margin-top: 2%;
             transition: all 500ms ease;
@@ -147,11 +214,15 @@ export default function Index() {
           }
 
           .project-pic {
-            margin-top: 10px;
             background-color: white;
+            margin: 10px 0 10px 0;
             max-height: 200px;
             height: 200px;
             width: 100%;
+          }
+          
+          .project-pic:hover {
+            cursor: pointer;
           }
 
           ul {
@@ -160,13 +231,13 @@ export default function Index() {
 
           a {
             text-decoration: none;
-            color: blue;
+            color: black;
           }
 
           a:hover {
             opacity: 0.6;
           }
         `}</style>
-      </>
-   );
+        </>
+    );
 }

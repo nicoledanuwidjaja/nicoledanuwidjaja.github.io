@@ -24,12 +24,9 @@ const Header = () => (
 		</div>
 
 		<style jsx global>{`
-			body {
-				background-color: #B2003B;
-			}
 
 			.navbar {
-				font-family: 'Arial';
+				font-family: 'Roboto';
 				display: flex;
 				flex-direction: column;
 				align-items: center;
@@ -38,7 +35,7 @@ const Header = () => (
 			}
 
 			.navbar a {
-				color: white;
+				color: #B2003B;
 			}
 
 			.navhead h1 {
@@ -47,7 +44,7 @@ const Header = () => (
 
 			.navhead {
 				padding: 1%;
-				color: white;
+				color: #B2003B;
 				font-size: 35pt;
 				opacity: 1;
 				animation-name: fadeInName;

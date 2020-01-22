@@ -19,16 +19,18 @@ export default function About() {
 
         <style jsx global>{`
           .content {
-            font-family: Arial;
+            font-family: Roboto;
           }
 
           .container {
-            background-color: rgb(255, 255, 255, 0.2);
-            color: white;
-            padding: 20px;
-    				border-radius: 20px;
-            margin: 1%;
-            height: 100vh;
+            display: block;
+            min-height: 90vh;
+            height: auto;
+            padding: 16px;
+            border-radius: 8px;
+            border: 1px solid #B2003B;
+            margin: 2% 1% 2% 1%;
+            color: black;
           }
         `}</style>
      	</Layout>
