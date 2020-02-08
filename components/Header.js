@@ -1,41 +1,59 @@
 import Link from 'next/link';
+import React, {Component} from 'react';
 
 const linkStyle = {
-	marginRight: 15
+    marginRight: 15
 };
 
-const Header = () => (
-	<>
-		<div className="navbar">
-			<div className="navhead">
-				<h1>Nicole Danuwidjaja</h1>
-			</div>
-			<div className="social">
-				<a href="https://github.com/nicoledanuwidjaja"><i className="fa fa-github fa-lg"/></a>
-			</div>
-			<div className="navpages">
-			   <Link href="/">
-			      <a className="navlink" style={linkStyle}>Home</a>
-			   </Link>
-			   <Link href="/about">
-			      <a className="navlink" style={linkStyle}>About</a>
-			   </Link>
-			</div>
-		</div>
+class Header extends Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+            scrolled: false
+        };
+    }
 
-		<style jsx global>{`
+    componentDidMount() {
+        window.addEventListener('scroll', () => {
+            const navbarTop = window.scrollY < 200;
 
-			.navbar {
+            if (navbarTop !== true) {
+                this.setState({ scrolled: true });
+            } else {
+                this.setState({ scrolled: false });
+            }
+        });
+    }
+
+    render() {
+        return (
+            <>
+                <div className="header">
+                    <div className="navhead">
+                        <h1>Nicole Danuwidjaja</h1>
+                    </div>
+                    <div className={this.state.scrolled ? 'navpages scrolled' : 'navpages'}>
+                        <div className="social">
+                            <a href="https://github.com/nicoledanuwidjaja"><i className="fa fa-github fa-lg"/></a>
+                        </div>
+                        <Link href="/">
+                            <a className={this.state.scrolled ? 'navlink-fixed' : 'navlink'}>Home</a>
+                        </Link>
+                        <Link href="/about">
+                            <a className={this.state.scrolled ? 'navlink-fixed' : 'navlink'}>About</a>
+                        </Link>
+                    </div>
+                </div>
+
+                <style jsx global>{`
+
+			.header {
 				font-family: 'Roboto';
 				display: flex;
 				flex-direction: column;
 				align-items: center;
 				width: 100%;
 				height: 35vh;
-			}
-
-			.navbar a {
-				color: #B2003B;
 			}
 
 			.navhead h1 {
@@ -64,10 +82,29 @@ const Header = () => (
 
 			.navpages {
 				flex-direction: column;
-				margin-left: 35%;
+			    width: 100%;	
+			}
+			
+			.scrolled {
+			    z-index: 10;
+			    top: 0;
+			    padding: 20px;
+			    position: fixed;
+			    background-color: #B2003B;
+			    animation-name: fadeInName;
+				animation-iteration-count: 1;
+				animation-timing-function: ease-in;
+				animation-duration: 0.15s;
+			}
+			
+			.navlink-fixed {
+			    color: white;
+				margin: 35px;
+				font-size: 14pt;
 			}
 
 			.navlink {
+			    color: #B2003B;
 				margin: 35px;
 				font-size: 14pt;
 			}
@@ -81,7 +118,9 @@ const Header = () => (
 				opacity: 0.6;
 			}
 		`}</style>
-	</>
-);
+            </>
+        );
+    }
+}
 
 export default Header;

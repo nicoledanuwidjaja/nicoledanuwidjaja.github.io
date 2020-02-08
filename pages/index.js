@@ -49,11 +49,21 @@ const ProjectLink = ({project}) => (
 const JobLink = ({job}) => (
     <div className="job-title">
         <li>
-            <div className="job-name">
-                <a>{job.title}</a>
+            <div className="col-md-8">
+                <div className="job-company">
+                    <h3>{job.company}</h3>
+                </div>
+                <div className="job-name">
+                    <a>{job.title}</a>
+                </div>
             </div>
-            <div className="job-caption">
-                <p>{job.technologies}</p>
+            <div className="col-md-4">
+                <div className="job-location">
+                    <p>{job.location}</p>
+                </div>
+                <div className="job-dates">
+                    <p>{job.dates}</p>
+                </div>
             </div>
         </li>
     </div>
@@ -150,6 +160,12 @@ export default function Index() {
             min-height: 50vh;
             margin-bottom: 5%;
           }
+          
+          .job {
+            background-color: orange;
+            padding: 10px;
+            margin: 10px;
+          }
 
           .projects { 
             padding: 3% 0% 3%;
@@ -179,9 +195,8 @@ export default function Index() {
             display: inline-block;
             background-color: yellow;
             position: relative;
-            margin-top: 10%;
+            margin: 10% 0 10% 0;
             padding: 1% 2% 1% 2%; 
-            
           }
           
           .project-caption p {
@@ -192,7 +207,7 @@ export default function Index() {
 
           .project {
             border-radius: 10px;
-            background-color: #B2003B;
+            background-color: lightskyblue;
             padding: 3%;
             margin: 3%;
             width: 80%;
@@ -202,7 +217,7 @@ export default function Index() {
           }
 
           .project:hover {
-            background-color: pink;
+            background-color: hotpink;
             padding-top: 2%;
             margin-top: 2%;
             transition: all 500ms ease;
