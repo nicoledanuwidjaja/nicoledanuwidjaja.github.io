@@ -1,7 +1,7 @@
 import Layout from '../components/Layout';
 import Link from 'next/link';
 
-function getProjects() {
+const getProjects = () => {
     return [
         {id: 'scrapetheprez', title: 'ScrapeThePrez', technologies: 'Python, Firebase'},
         {id: 'tricone', title: 'Tricone', technologies: 'Arduino BLE'},
@@ -10,9 +10,9 @@ function getProjects() {
         {id: 'test5', title: 'Project 5', technologies: 'React'},
         {id: 'test6', title: 'Project 6', technologies: 'React'}
     ];
-}
+};
 
-function getJobs() {
+const getJobs = () => {
     return [
         {title: 'Web Developer', location: 'Boston, MA', company: 'WHOOP', dates: 'January 2020 - Present'},
         {
@@ -28,7 +28,7 @@ function getJobs() {
             dates: 'June 2017 - July 2018'
         }
     ];
-}
+};
 
 const ProjectLink = ({project}) => (
     <div className="project-title">
@@ -133,7 +133,7 @@ export default function Index() {
 
             <style jsx global>{`
           .content {
-            font-family: 'Roboto';
+            font-family: 'Arial';
           }
 
           .title {
@@ -162,7 +162,7 @@ export default function Index() {
           }
           
           .job {
-            background-color: orange;
+            background-color: #D0B990;
             padding: 10px;
             margin: 10px;
           }
@@ -192,6 +192,7 @@ export default function Index() {
           }
           
           .project-caption {
+            border-radius: 10px;
             display: inline-block;
             background-color: yellow;
             position: relative;
@@ -207,7 +208,7 @@ export default function Index() {
 
           .project {
             border-radius: 10px;
-            background-color: lightskyblue;
+            background-color: #EFE8BA;
             padding: 3%;
             margin: 3%;
             width: 80%;
@@ -217,7 +218,7 @@ export default function Index() {
           }
 
           .project:hover {
-            background-color: hotpink;
+            background-color: #B2003B;
             padding-top: 2%;
             margin-top: 2%;
             transition: all 500ms ease;
@@ -230,7 +231,7 @@ export default function Index() {
 
           .project-pic {
             background-color: white;
-            margin: 10px 0 10px 0;
+            margin-bottom: 10px;
             max-height: 200px;
             height: 200px;
             width: 100%;

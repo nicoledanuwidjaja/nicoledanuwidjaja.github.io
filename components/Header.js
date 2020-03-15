@@ -1,10 +1,6 @@
 import Link from 'next/link';
 import React, {Component} from 'react';
 
-const linkStyle = {
-    marginRight: 15
-};
-
 class Header extends Component {
     constructor(props) {
         super(props);
@@ -18,9 +14,9 @@ class Header extends Component {
             const navbarTop = window.scrollY < 200;
 
             if (navbarTop !== true) {
-                this.setState({ scrolled: true });
+                this.setState({scrolled: true});
             } else {
-                this.setState({ scrolled: false });
+                this.setState({scrolled: false});
             }
         });
     }
@@ -32,15 +28,17 @@ class Header extends Component {
                     <div className="navhead">
                         <h1>Nicole Danuwidjaja</h1>
                     </div>
-                    <div className={this.state.scrolled ? 'navpages scrolled' : 'navpages'}>
+                    <div className={this.state.scrolled ? 'navpages scrolled' : 'box-row navpages'}>
                         <div className="social">
                             <a href="https://github.com/nicoledanuwidjaja"><i className="fa fa-github fa-lg"/></a>
                         </div>
                         <Link href="/">
-                            <a className={this.state.scrolled ? 'navlink-fixed' : 'navlink'}>Home</a>
+                            <a className={this.state.scrolled ? 'navlink-fixed' : 'box navlink'}>
+                                {this.state.scrolled ? 'Nicole Danuwidjaja' : 'Home'}
+                            </a>
                         </Link>
                         <Link href="/about">
-                            <a className={this.state.scrolled ? 'navlink-fixed' : 'navlink'}>About</a>
+                            <a className={this.state.scrolled ? 'navlink-fixed' : 'box navlink'}>About</a>
                         </Link>
                     </div>
                 </div>
@@ -48,14 +46,30 @@ class Header extends Component {
                 <style jsx global>{`
 
 			.header {
-				font-family: 'Roboto';
+				font-family: 'Arial';
 				display: flex;
 				flex-direction: column;
 				align-items: center;
 				width: 100%;
-				height: 35vh;
+				height: 100vh;
 			}
-
+			
+			.box-row {
+			    display: block;
+			    text-align: center;
+			    width: 100%;
+			}
+			
+			.box {
+			    display: inline-block;
+                height: auto;
+                padding: 16px;
+                border-radius: 8px;
+                border: 1px solid #B2003B;
+                margin: 1%;
+                color: black;
+              }
+    
 			.navhead h1 {
 				font-size: 50pt;
 			}

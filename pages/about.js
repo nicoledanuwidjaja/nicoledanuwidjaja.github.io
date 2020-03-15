@@ -19,7 +19,7 @@ export default function About() {
 
         <style jsx global>{`
           .content {
-            font-family: Roboto;
+            font-family: Arial;
           }
 
           .container {

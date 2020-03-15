@@ -8,7 +8,7 @@ const Footer = () => (
         </div>
         <style jsx global>{`
       .foobar {
-        font-family: Roboto;
+        font-family: Arial;
         text-align: center;
         width: auto;
 				height: auto;
