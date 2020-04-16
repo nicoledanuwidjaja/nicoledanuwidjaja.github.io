@@ -1,14 +1,20 @@
+import React from 'react';
 import Layout from '../components/Layout';
 import Link from 'next/link';
+import {Element, Events, animateScroll as scroll, scrollSpy, scroller} from 'react-scroll';
 
 const getProjects = () => {
     return [
-        {id: 'scrapetheprez', title: 'ScrapeThePrez', technologies: 'Python, Firebase'},
-        {id: 'tricone', title: 'Tricone', technologies: 'Arduino BLE'},
-        {id: 'garbadoor', title: 'GarbaDoor', technologies: 'Python, React, Arduino'},
-        {id: 'cantrip', title: 'CanTrip', technologies: 'Java'},
-        {id: 'test5', title: 'Project 5', technologies: 'React'},
-        {id: 'test6', title: 'Project 6', technologies: 'React'}
+        {
+            id: 'mentormatch',
+            title: 'MentorMatch',
+            technologies: ['GraphQL', 'React', 'Node', 'Bookshelf', 'Knex', 'PostgreSQL', 'Express']
+        },
+        {id: 'scrapetheprez', title: 'ScrapeThePrez', technologies: ['Python', 'Firebase']},
+        {id: 'tricone', title: 'Tricone', technologies: ['Arduino BLE']},
+        {id: 'garbadoor', title: 'GarbaDoor', technologies: ['Python', 'React', 'Arduino', 'Firebase']},
+        {id: 'cantrip', title: 'CanTrip', technologies: ['Java', 'Firebase']},
+        {id: 'test6', title: 'Project 6', technologies: ['React']}
     ];
 };
 
@@ -45,16 +51,22 @@ const getInterests = () => {
 };
 
 const ProjectLink = ({project}) => (
-    <div className="project-title">
+    <div className="project-container">
         <li>
             <Link href="/project/[id]" as={`/project/${project.id}`}>
                 <div className="project-pic"/>
             </Link>
-            <div className="project-name">
-                <a>{project.title}</a>
-            </div>
-            <div className="project-caption">
-                <p>{project.technologies}</p>
+            <div className="project-info">
+                <div className="project-name">
+                    <a>{project.title}</a>
+                </div>
+                <div className="caption-container">
+                    {project.technologies.map((technology) =>
+                        <div className="project-caption">
+                            <p>{technology}</p>
+                        </div>
+                    )}
+                </div>
             </div>
         </li>
     </div>
@@ -83,75 +95,143 @@ const JobLink = ({job}) => (
     </div>
 );
 
-Index.getInitialProps = async function () {
-    const projectData = getProjects();
-    const jobData = getJobs();
-    const interestData = getInterests();
+class Index extends React.Component {
 
-    return {
-        projects: projectData.map(entry => entry),
-        jobs: jobData.map(entry => entry),
-        interests: interestData.map(entry => entry),
+    constructor(props) {
+        super(props);
+        this.scrollToTop = this.scrollToTop.bind(this);
+    }
+
+    componentDidMount() {
+
+        Events.scrollEvent.register('begin', function () {
+            console.log("begin", arguments);
+        });
+
+        Events.scrollEvent.register('end', function () {
+            console.log("end", arguments);
+        });
+
+    }
+
+    scrollToTop() {
+        scroll.scrollToTop();
+    }
+
+    scrollTo() {
+        scroller.scrollTo('scroll-to-element', {
+            duration: 800,
+            delay: 0,
+            smooth: 'easeInOutQuart'
+        })
+    }
+
+    scrollToWithContainer() {
+
+        let goToContainer = new Promise((resolve, reject) => {
+
+            Events.scrollEvent.register('end', () => {
+                resolve();
+                Events.scrollEvent.remove('end');
+            });
+
+            scroller.scrollTo('scroll-container', {
+                duration: 800,
+                delay: 0,
+                smooth: 'easeInOutQuart'
+            });
+
+        });
+
+        goToContainer.then(() =>
+            scroller.scrollTo('scroll-container-second-element', {
+                duration: 800,
+                delay: 0,
+                smooth: 'easeInOutQuart',
+                containerId: 'scroll-container'
+            }));
+    }
+
+    componentWillUnmount() {
+        Events.scrollEvent.remove('begin');
+        Events.scrollEvent.remove('end');
+    }
+
+    static async getInitialProps() {
+        const projectData = getProjects();
+        const jobData = getJobs();
+        const interestData = getInterests();
+
+        return {
+            projects: projectData.map(entry => entry),
+            jobs: jobData.map(entry => entry),
+            interests: interestData.map(entry => entry),
+        };
     };
-};
 
-export default function Index() {
-    return (
-        <>
-            <div className="content">
-                <Layout>
-                    <div className="hello container">
-                        <h1>Hello there!</h1>
-                        <p>I have always had my eye on business and technology, and now I can truly say that it is where
-                            my passions lie. I am part of the founding team working on branding, designing, programming,
-                            and pitching NUGig.tech: an up-and-coming platform that connects talented Northeastern
-                            students for hire in technology with local companies.</p>
-                        <p>My greatest concentration is in Narwhal Company: an eCommerce business I started and have
-                            made over $40,000 in revenue selling technology gadgets, everyday commodities, educational
-                            resources, and private-label products. Through my business, I've partnered with unique
-                            individuals and businesses from across the globe including China, Israel, Hong Kong, New
-                            Zealand, Greece, and more. In addition, Narwhal Company also offers on-demand virtual
-                            assistant services including, but not limited to, transcriptions, copywriting, and data
-                            entry.</p>
-                        <p>I love working on projects! What I love about my major is that the majority of my work, if
-                            not all of it, is completely team-oriented, which has allowed me to grow in my perspectives
-                            and development as an aspiring software developer and entrepreneur. Hence, since attending
-                            Northeastern, I have found immense interest with participating in hackathons at diverse
-                            universities, and I plan to broaden my coverage.</p>
-                    </div>
+    render() {
+        return (
+            <>
+                <div className="content">
+                    <Layout>
+                        <Element name="hello" className="hello container">
+                            <h1>Hello there!</h1>
+                            <p>I have always had my eye on business and technology, and now I can truly say that it is
+                                where
+                                my passions lie. I am part of the founding team working on branding, designing,
+                                programming,
+                                and pitching NUGig.tech: an up-and-coming platform that connects talented Northeastern
+                                students for hire in technology with local companies.</p>
+                            <p>My greatest concentration is in Narwhal Company: an eCommerce business I started and have
+                                made over $40,000 in revenue selling technology gadgets, everyday commodities,
+                                educational
+                                resources, and private-label products. Through my business, I've partnered with unique
+                                individuals and businesses from across the globe including China, Israel, Hong Kong, New
+                                Zealand, Greece, and more. In addition, Narwhal Company also offers on-demand virtual
+                                assistant services including, but not limited to, transcriptions, copywriting, and data
+                                entry.</p>
+                            <p>I love working on projects! What I love about my major is that the majority of my work,
+                                if
+                                not all of it, is completely team-oriented, which has allowed me to grow in my
+                                perspectives
+                                and development as an aspiring software developer and entrepreneur. Hence, since
+                                attending
+                                Northeastern, I have found immense interest with participating in hackathons at diverse
+                                universities, and I plan to broaden my coverage.</p>
+                        </Element>
 
-                    <div className="container">
-                        <h1>Projects</h1>
-                        <ul className="projects">
-                            {getProjects().map(project => (
-                                <div className="project">
-                                    <ProjectLink key={project.id} project={project}/>
+                        <Element name="projects" className="container">
+                            <h1>Projects</h1>
+                            <ul className="projects">
+                                {getProjects().map(project => (
+                                    <div className="project">
+                                        <ProjectLink key={project.id} project={project}/>
+                                    </div>
+                                ))}
+                            </ul>
+                        </Element>
+                        <Element name="jobs" className="container">
+                            <h1>Experience</h1>
+                            <ul className="jobs">
+                                {getJobs().map(job => (
+                                    <div className="job">
+                                        <JobLink key={job.id} job={job}/>
+                                    </div>
+                                ))}
+                            </ul>
+                        </Element>
+                        <Element name="interests" className="container">
+                            <h1>Interests</h1>
+                            {getInterests().map(interest => (
+                                <div className="interest">
+                                    <p key={interest.id}>{interest}</p>
                                 </div>
                             ))}
-                        </ul>
-                    </div>
-                    <div className="container">
-                        <h1>Experience</h1>
-                        <ul className="jobs">
-                            {getJobs().map(job => (
-                                <div className="job">
-                                    <JobLink key={job.id} job={job}/>
-                                </div>
-                            ))}
-                        </ul>
-                    </div>
-                    <div className="container">
-                        <h1>Interests</h1>
-                        {getInterests().map(interest => (
-                            <div className="interest">
-                                <p key={interest.id}>{interest}</p>
-                            </div>
-                        ))}
-                    </div>
-                </Layout>
-            </div>
+                        </Element>
+                    </Layout>
+                </div>
 
-            <style jsx global>{`
+                <style jsx global>{`
           .content {
             font-family: 'Arial';
           }
@@ -180,14 +260,14 @@ export default function Index() {
             min-height: 50vh;
             margin-bottom: 5%;
           }
-          
-           .jobs { 
+
+           .jobs {
             padding: 3% 0% 3%;
             min-height: 90vh;
             height: auto;
             width: 100%;
           }
-          
+
           .job {
             background-color: #D0B990;
             border-radius: 10px;
@@ -195,7 +275,7 @@ export default function Index() {
             margin: 10px;
           }
 
-          .projects { 
+          .projects {
             padding: 3% 0% 3%;
             min-height: 90vh;
             height: auto;
@@ -214,20 +294,24 @@ export default function Index() {
           .projects p {
             font-size: 12pt;
           }
-          
+
           .project-name {
             padding: 2px;
           }
-          
+
+          .caption-container {
+            margin: 5% 2% 5% 2%;
+          }
+
           .project-caption {
             border-radius: 10px;
             display: inline-block;
             background-color: yellow;
             position: relative;
-            margin: 10% 0 10% 0;
-            padding: 1% 2% 1% 2%; 
+            padding: 10px;
+            margin: 10px 10px 10px;
           }
-          
+
           .project-caption p {
             display: inline;
             text-align: center;
@@ -236,11 +320,11 @@ export default function Index() {
 
           .project {
             border-radius: 10px;
-            background-color: #EFE8BA;
+            background-color: #eb6a0c;
             padding: 3%;
             margin: 3%;
             width: 80%;
-            height: 80%;
+            height: auto;
             min-width: 250px;
             transition: all 500ms ease;
           }
@@ -252,7 +336,7 @@ export default function Index() {
             transition: all 500ms ease;
           }
 
-          .project-title {
+          .project-container {
             text-align: center;
             font-size: 16pt;
           }
@@ -264,11 +348,15 @@ export default function Index() {
             height: 200px;
             width: 100%;
           }
-          
+
+          .project-info {
+            display: block;
+          }
+
           .project-pic:hover {
             cursor: pointer;
           }
-          
+
           .interest p {
             border-radius: 20px;
             width: 20%;
@@ -290,6 +378,9 @@ export default function Index() {
             opacity: 0.6;
           }
         `}</style>
-        </>
-    );
+            </>
+        );
+    }
 }
+
+export default Index;

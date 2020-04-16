@@ -1,5 +1,6 @@
 import Link from 'next/link';
 import React, {Component} from 'react';
+import { Link as ScrollLink } from 'react-scroll';
 
 class Header extends Component {
     constructor(props) {
@@ -32,11 +33,11 @@ class Header extends Component {
                         <div className="social">
                             <a href="https://github.com/nicoledanuwidjaja"><i className="fa fa-github fa-lg"/></a>
                         </div>
-                        <Link href="/">
+                        <ScrollLink to="hello" spy={true} smooth={true} offset={-70} activeClass="active">
                             <a className={this.state.scrolled ? 'navlink-fixed' : 'box navlink'}>
                                 {this.state.scrolled ? 'Nicole Danuwidjaja' : 'Home'}
                             </a>
-                        </Link>
+                        </ScrollLink>
                         <Link href="/about">
                             <a className={this.state.scrolled ? 'navlink-fixed' : 'box navlink'}>About</a>
                         </Link>
