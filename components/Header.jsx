@@ -75,7 +75,7 @@ class Header extends Component {
 			}
 
 			.navhead {
-				padding: 1%;
+				padding: 15% 1% 1% 2%;
 				color: #B2003B;
 				font-size: 35pt;
 				opacity: 1;

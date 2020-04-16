@@ -30,6 +30,20 @@ const getJobs = () => {
     ];
 };
 
+const getInterests = () => {
+    return [
+        "blockchain technology",
+        "education",
+        "robotics",
+        "web/mobile app development",
+        "chess",
+        "video editing",
+        "logo design",
+        "writing",
+        "puzzles"
+    ];
+};
+
 const ProjectLink = ({project}) => (
     <div className="project-title">
         <li>
@@ -72,9 +86,12 @@ const JobLink = ({job}) => (
 Index.getInitialProps = async function () {
     const projectData = getProjects();
     const jobData = getJobs();
+    const interestData = getInterests();
+
     return {
-        projects: projectData.map(entry => entry.project),
-        jobs: jobData.map(entry => entry.job)
+        projects: projectData.map(entry => entry),
+        jobs: jobData.map(entry => entry),
+        interests: interestData.map(entry => entry),
     };
 };
 
@@ -115,7 +132,7 @@ export default function Index() {
                     </div>
                     <div className="container">
                         <h1>Experience</h1>
-                        <ul className="job-template">
+                        <ul className="jobs">
                             {getJobs().map(job => (
                                 <div className="job">
                                     <JobLink key={job.id} job={job}/>
@@ -125,8 +142,11 @@ export default function Index() {
                     </div>
                     <div className="container">
                         <h1>Interests</h1>
-                        <p>blockchain technology, education, robotics, web/mobile app
-                            development, chess, video editing, logo design, writing, and puzzles</p>
+                        {getInterests().map(interest => (
+                            <div className="interest">
+                                <p key={interest.id}>{interest}</p>
+                            </div>
+                        ))}
                     </div>
                 </Layout>
             </div>
@@ -161,8 +181,16 @@ export default function Index() {
             margin-bottom: 5%;
           }
           
+           .jobs { 
+            padding: 3% 0% 3%;
+            min-height: 90vh;
+            height: auto;
+            width: 100%;
+          }
+          
           .job {
             background-color: #D0B990;
+            border-radius: 10px;
             padding: 10px;
             margin: 10px;
           }
@@ -239,6 +267,14 @@ export default function Index() {
           
           .project-pic:hover {
             cursor: pointer;
+          }
+          
+          .interest p {
+            border-radius: 20px;
+            width: 20%;
+            padding: 1%;
+            text-align: center;
+            background-color: lightskyblue;
           }
 
           ul {

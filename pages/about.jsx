@@ -24,7 +24,7 @@ export default function About() {
 
           .container {
             display: block;
-            min-height: 90vh;
+            min-height: 80vh;
             height: auto;
             padding: 16px;
             border-radius: 8px;
