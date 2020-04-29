@@ -1,14 +1,14 @@
 import React from 'react';
 import Layout from '../components/Layout';
 import Link from 'next/link';
-import {Element, Events, animateScroll as scroll, scrollSpy, scroller} from 'react-scroll';
+import {Element, Events, animateScroll as scroll, scroller} from 'react-scroll';
 
 const getProjects = () => {
     return [
         {
             id: 'mentormatch',
             title: 'MentorMatch',
-            technologies: ['GraphQL', 'React', 'Node', 'Bookshelf', 'Knex', 'PostgreSQL', 'Express']
+            technologies: ['GraphQL', 'React', 'Node', 'Bookshelf', 'Knex', 'PostgreSQL']
         },
         {id: 'scrapetheprez', title: 'ScrapeThePrez', technologies: ['Python', 'Firebase']},
         {id: 'tricone', title: 'Tricone', technologies: ['Arduino BLE']},
@@ -52,23 +52,21 @@ const getInterests = () => {
 
 const ProjectLink = ({project}) => (
     <div className="project-container">
-        <li>
-            <Link href="/project/[id]" as={`/project/${project.id}`}>
-                <div className="project-pic"/>
-            </Link>
-            <div className="project-info">
-                <div className="project-name">
-                    <a>{project.title}</a>
-                </div>
-                <div className="caption-container">
-                    {project.technologies.map((technology) =>
-                        <div className="project-caption">
-                            <p>{technology}</p>
-                        </div>
-                    )}
-                </div>
+        <Link href="/project/[id]" as={`/project/${project.id}`}>
+            <div className="project-pic"/>
+        </Link>
+        <div className="project-info">
+            <div className="project-name">
+                <a>{project.title}</a>
             </div>
-        </li>
+            <div className="caption-container">
+                {project.technologies.map((technology) =>
+                    <div className="project-caption">
+                        <p>{technology}</p>
+                    </div>
+                )}
+            </div>
+        </div>
     </div>
 );
 
@@ -102,18 +100,6 @@ class Index extends React.Component {
         this.scrollToTop = this.scrollToTop.bind(this);
     }
 
-    componentDidMount() {
-
-        Events.scrollEvent.register('begin', function () {
-            console.log("begin", arguments);
-        });
-
-        Events.scrollEvent.register('end', function () {
-            console.log("end", arguments);
-        });
-
-    }
-
     scrollToTop() {
         scroll.scrollToTop();
     }
@@ -130,11 +116,6 @@ class Index extends React.Component {
 
         let goToContainer = new Promise((resolve, reject) => {
 
-            Events.scrollEvent.register('end', () => {
-                resolve();
-                Events.scrollEvent.remove('end');
-            });
-
             scroller.scrollTo('scroll-container', {
                 duration: 800,
                 delay: 0,
@@ -150,11 +131,6 @@ class Index extends React.Component {
                 smooth: 'easeInOutQuart',
                 containerId: 'scroll-container'
             }));
-    }
-
-    componentWillUnmount() {
-        Events.scrollEvent.remove('begin');
-        Events.scrollEvent.remove('end');
     }
 
     static async getInitialProps() {
@@ -202,23 +178,21 @@ class Index extends React.Component {
 
                         <Element name="projects" className="container">
                             <h1>Projects</h1>
-                            <ul className="projects">
+                            <div className="projects">
                                 {getProjects().map(project => (
-                                    <div className="project">
-                                        <ProjectLink key={project.id} project={project}/>
-                                    </div>
+                                    <ProjectLink key={project.id} project={project}/>
                                 ))}
-                            </ul>
+                            </div>
                         </Element>
                         <Element name="jobs" className="container">
                             <h1>Experience</h1>
-                            <ul className="jobs">
+                            <div className="jobs">
                                 {getJobs().map(job => (
                                     <div className="job">
                                         <JobLink key={job.id} job={job}/>
                                     </div>
                                 ))}
-                            </ul>
+                            </div>
                         </Element>
                         <Element name="interests" className="container">
                             <h1>Interests</h1>
@@ -242,23 +216,17 @@ class Index extends React.Component {
 
           .container {
             display: block;
-            min-height: 90vh;
-            height: auto;
-            padding: 16px;
+            min-height: 80vh;
             border-radius: 8px;
             border: 1px solid #B2003B;
-            margin: 2% 1% 2% 1%;
+            margin: 3% 1% 3% 1%;
+            padding: 2%;
             color: black;
           }
 
           .container li {
             list-style: none;
             margin: 5px 0;
-          }
-
-          .hello {
-            min-height: 50vh;
-            margin-bottom: 5%;
           }
 
            .jobs {
@@ -276,7 +244,6 @@ class Index extends React.Component {
           }
 
           .projects {
-            padding: 3% 0% 3%;
             min-height: 90vh;
             height: auto;
             width: 100%;
@@ -300,7 +267,7 @@ class Index extends React.Component {
           }
 
           .caption-container {
-            margin: 5% 2% 5% 2%;
+            margin: auto;
           }
 
           .project-caption {
@@ -308,7 +275,7 @@ class Index extends React.Component {
             display: inline-block;
             background-color: yellow;
             position: relative;
-            padding: 10px;
+            padding: 2px 6px;
             margin: 10px 10px 10px;
           }
 
@@ -318,30 +285,28 @@ class Index extends React.Component {
             font-size: 14px;
           }
 
-          .project {
+          .project-container {
+            text-align: center;
+            font-size: 16pt;
             border-radius: 10px;
             background-color: #eb6a0c;
             padding: 3%;
-            margin: 3%;
+            margin: auto;
             width: 80%;
             height: auto;
             min-width: 250px;
             transition: all 500ms ease;
           }
 
-          .project:hover {
+          .project-container:hover {
             background-color: #B2003B;
             padding-top: 2%;
             margin-top: 2%;
             transition: all 500ms ease;
           }
 
-          .project-container {
-            text-align: center;
-            font-size: 16pt;
-          }
-
           .project-pic {
+            text-align: center;
             background-color: white;
             margin-bottom: 10px;
             max-height: 200px;
