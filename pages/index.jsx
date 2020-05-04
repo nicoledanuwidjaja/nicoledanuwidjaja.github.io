@@ -150,34 +150,36 @@ class Index extends React.Component {
             <>
                 <div className="content">
                     <Layout>
-                        <Element name="hello" className="hello container">
-                            <h1>Hello there!</h1>
-                            <p>I have always had my eye on business and technology, and now I can truly say that it is
-                                where
-                                my passions lie. I am part of the founding team working on branding, designing,
-                                programming,
-                                and pitching NUGig.tech: an up-and-coming platform that connects talented Northeastern
-                                students for hire in technology with local companies.</p>
-                            <p>My greatest concentration is in Narwhal Company: an eCommerce business I started and have
-                                made over $40,000 in revenue selling technology gadgets, everyday commodities,
-                                educational
-                                resources, and private-label products. Through my business, I've partnered with unique
-                                individuals and businesses from across the globe including China, Israel, Hong Kong, New
-                                Zealand, Greece, and more. In addition, Narwhal Company also offers on-demand virtual
-                                assistant services including, but not limited to, transcriptions, copywriting, and data
-                                entry.</p>
-                            <p>I love working on projects! What I love about my major is that the majority of my work,
-                                if
-                                not all of it, is completely team-oriented, which has allowed me to grow in my
-                                perspectives
-                                and development as an aspiring software developer and entrepreneur. Hence, since
-                                attending
-                                Northeastern, I have found immense interest with participating in hackathons at diverse
-                                universities, and I plan to broaden my coverage.</p>
-                        </Element>
-
+                        <div className="text-container">
+                            <Element name="hello" className="hello-container">
+                                <div className="landing-title">Hello there!</div>
+                                <div className="landing-paragraph">
+                                    BLAH BLAH BLAH
+                                    I have always had my eye on business and technology, and now I can truly say that it is
+                                    where my passions lie. I am part of the founding team working on branding, designing,
+                                    programming, and pitching NUGig.tech: an up-and-coming platform that connects talented Northeastern
+                                    students for hire in technology with local companies.</div>
+                                <div className="landing-paragraph">
+                                    My greatest concentration is in Narwhal Company: an eCommerce business I started and have
+                                    made over $40,000 in revenue selling technology gadgets, everyday commodities,
+                                    educational resources, and private-label products. Through my business, I've partnered with unique
+                                    individuals and businesses from across the globe including China, Israel, Hong Kong, New
+                                    Zealand, Greece, and more. In addition, Narwhal Company also offers on-demand virtual
+                                    assistant services including, but not limited to, transcriptions, copywriting, and data
+                                    entry.</div>
+                                <div className="landing-paragraph">
+                                    I love working on projects! What I love about my major is that the majority of my work,
+                                    if not all of it, is completely team-oriented, which has allowed me to grow in my
+                                    perspectives and development as an aspiring software developer and entrepreneur. Hence, since
+                                    attending Northeastern, I have found immense interest with participating in hackathons at diverse
+                                    universities, and I plan to broaden my coverage.</div>
+                            </Element>
+                            {/*<div className="hello landing-image">*/}
+                            {/*    <img src={require('/static/christmas_nicole.jpeg')} alt="nicole picture" />*/}
+                            {/*</div>*/}
+                        </div>
                         <Element name="projects" className="container">
-                            <h1>Projects</h1>
+                            <div className="container-title">Projects</div>
                             <div className="projects">
                                 {getProjects().map(project => (
                                     <ProjectLink key={project.id} project={project}/>
@@ -185,7 +187,7 @@ class Index extends React.Component {
                             </div>
                         </Element>
                         <Element name="jobs" className="container">
-                            <h1>Experience</h1>
+                            <div className="container-title">Experience</div>
                             <div className="jobs">
                                 {getJobs().map(job => (
                                     <div className="job">
@@ -195,7 +197,7 @@ class Index extends React.Component {
                             </div>
                         </Element>
                         <Element name="interests" className="container">
-                            <h1>Interests</h1>
+                            <div className="container-title">Interests</div>
                             {getInterests().map(interest => (
                                 <div className="interest">
                                     <p key={interest.id}>{interest}</p>
@@ -207,26 +209,60 @@ class Index extends React.Component {
 
                 <style jsx global>{`
           .content {
-            font-family: 'Arial';
+            font-family: 'Roboto';
           }
 
           .title {
             background-color: black;
           }
+          
+          .text-container {
+            display: flex;
+            min-height: 95vh;
+          }
+          
+          .hello-container {
+            background-color: white;
+            display: block;
+            border-radius: 8px;
+            border: 3px solid darkred;
+            margin: auto;
+            padding: 2%;
+            min-height: 75vh;
+            width: 45%;
+          }
+          
+          .landing-title {
+            padding: 2% 0%;
+            font-size: 45px;
+          }
+          
+          .landing-paragraph {
+            font-size: 16px;
+          }
+          
+          .landing-image {
+            margin: auto;
+          }
 
           .container {
+            background-color: white;
             display: block;
             min-height: 80vh;
             border-radius: 8px;
-            border: 1px solid #B2003B;
-            margin: 3% 1% 3% 1%;
+            border: 3px solid darkred;
+            margin: 3% 0% 3%;
             padding: 2%;
-            color: black;
           }
 
           .container li {
             list-style: none;
             margin: 5px 0;
+          }
+          
+          .container-title {
+            font-size: 30px;
+            font-weight: bold;
           }
 
            .jobs {
@@ -237,7 +273,7 @@ class Index extends React.Component {
           }
 
           .job {
-            background-color: #D0B990;
+            background-color: lightsalmon;
             border-radius: 10px;
             padding: 10px;
             margin: 10px;
@@ -263,11 +299,11 @@ class Index extends React.Component {
           }
 
           .project-name {
-            padding: 2px;
+            padding: 4px;
           }
 
           .caption-container {
-            margin: auto;
+            margin: 0% 0% 5%;
           }
 
           .project-caption {
@@ -276,7 +312,7 @@ class Index extends React.Component {
             background-color: yellow;
             position: relative;
             padding: 2px 6px;
-            margin: 10px 10px 10px;
+            margin: 3px 5px 3px;
           }
 
           .project-caption p {
@@ -289,9 +325,9 @@ class Index extends React.Component {
             text-align: center;
             font-size: 16pt;
             border-radius: 10px;
-            background-color: #eb6a0c;
+            background-color: lightcoral;
             padding: 3%;
-            margin: auto;
+            margin: 3% 2% 2% 7%;
             width: 80%;
             height: auto;
             min-width: 250px;
@@ -299,7 +335,7 @@ class Index extends React.Component {
           }
 
           .project-container:hover {
-            background-color: #B2003B;
+            background-color: tomato;
             padding-top: 2%;
             margin-top: 2%;
             transition: all 500ms ease;
@@ -327,7 +363,7 @@ class Index extends React.Component {
             width: 20%;
             padding: 1%;
             text-align: center;
-            background-color: lightskyblue;
+            background-color: salmon;
           }
 
           ul {

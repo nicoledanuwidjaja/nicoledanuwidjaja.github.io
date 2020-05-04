@@ -35,9 +35,11 @@ class Header extends Component {
         return (
             <>
                 <div className="header">
-                    <button className="menu-button" onClick={this.toggleMenu}>
-                        <a href="#menu">=</a>
-                    </button>
+                    <div className="hamburger" onClick={this.toggleMenu}>
+                        <span className="ham-bar" />
+                        <span className="ham-bar" />
+                        <span className="ham-bar" />
+                    </div>
                     <div className={this.state.showMenu ? 'menu open' : 'menu'}>
                         <div className="menu-container">
                             <ul className="menu-items">
@@ -59,16 +61,22 @@ class Header extends Component {
                                 {this.state.scrolled ? 'Nicole Danuwidjaja' : 'Home'}
                             </div>
                         </ScrollLink>
-                        <Link href="/about">
-                            <div className={this.state.scrolled ? 'navlink-fixed' : 'box navlink'}>About</div>
-                        </Link>
+                        <ScrollLink to="projects" spy={true} smooth={true} offset={-80} activeClass="active">
+                            <div className={this.state.scrolled ? 'navlink-fixed' : 'box navlink'}>Projects</div>
+                        </ScrollLink>
+                        <ScrollLink to="jobs" spy={true} smooth={true} offset={-80} activeClass="active">
+                            <div className={this.state.scrolled ? 'navlink-fixed' : 'box navlink'}>Experience</div>
+                        </ScrollLink>
+                        <ScrollLink to="interests" spy={true} smooth={true} offset={-80} activeClass="active">
+                            <div className={this.state.scrolled ? 'navlink-fixed' : 'box navlink'}>Interests</div>
+                        </ScrollLink>
                     </div>
                 </div>
 
                 <style jsx global>{`
 
 			.header {
-				font-family: 'Arial';
+				font-family: 'Roboto';
 				display: flex;
 				flex-direction: column;
 				align-items: center;
@@ -76,19 +84,34 @@ class Header extends Component {
 				height: 100vh;
 			}
 
-			.menu-button {
+			.hamburger {
+			    cursor: pointer;
 			    position: absolute;
+			    display: flex;
+			    flex-direction: column;
+			    width: 36px;
+			    height: 36px;
+			    top: 10px;
 			    right: 1%;
 			    z-index: 101;
 			}
+			
+			.ham-bar {
+			    display: block;
+			    height: 4px;
+			    width: 36px;
+			    background-color: darkred;
+			    margin-bottom: 5px;
+			    right: 0;
+			}
 
 			.menu-container {
-			    transition: 1s ease-in-out;
+			    transition: opacity 0.5s;
 			    position: fixed;
 			    display: table;
 			    top: 0;
 			    left: 0;
-			    background: rgba(178, 0, 59, 0.8);
+			    background: rgba(178, 0, 59, 0.4);
 			    width: 100%;
 			    height: 100vh;
 			    z-index: 100;
@@ -99,15 +122,14 @@ class Header extends Component {
             }
 
 			.open {
-			    transition: 1s ease-in-out;
 			    display: block;
-			    list-style: none;
 			}
 			
 			.menu-items {
 			    display: table-cell;
 			    text-align: center;
 			    vertical-align: middle;
+			    list-style: none;
 			}
 			
 			.menu-item li:hover {
@@ -133,7 +155,7 @@ class Header extends Component {
                 height: auto;
                 padding: 16px;
                 border-radius: 8px;
-                border: 1px solid #B2003B;
+                border: 1px solid darkred;
                 margin: 1%;
                 color: black;
             }
@@ -145,7 +167,7 @@ class Header extends Component {
 			.navhead {
 			    margin-top: 15%;
 				padding: 2% 1%;
-				color: #B2003B;
+				color: darkred;
 				font-size: 35pt;
 				opacity: 1;
 				animation-name: fadeInName;
@@ -163,7 +185,7 @@ class Header extends Component {
 			    z-index: 10;
 			    top: 0;
 			    position: fixed;
-			    background-color: #B2003B;
+			    background-color: darkred;
 			    animation-name: fadeInName;
 				animation-iteration-count: 1;
 				animation-timing-function: ease-in;
@@ -171,15 +193,16 @@ class Header extends Component {
 			}
 
 			.navlink-fixed {
+			    cursor: pointer;
 			    color: white;
-				margin: 35px;
+				margin: 20px;
 				font-size: 14pt;
 			}
 
 			.navlink {
 			    cursor: pointer;
-			    color: #B2003B;
-				margin: 35px;
+			    color: darkred;
+				margin: 10px 20px 10px 20px;
 				font-size: 14pt;
 			}
 
