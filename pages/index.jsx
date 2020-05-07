@@ -225,7 +225,7 @@ class Index extends React.Component {
             background-color: white;
             display: block;
             border-radius: 8px;
-            border: 3px solid darkred;
+            border: 3px solid salmon;
             margin: auto;
             padding: 2%;
             min-height: 75vh;
@@ -250,7 +250,7 @@ class Index extends React.Component {
             display: block;
             min-height: 80vh;
             border-radius: 8px;
-            border: 3px solid darkred;
+            border: 3px solid salmon;
             margin: 3% 0% 3%;
             padding: 2%;
           }
@@ -309,7 +309,7 @@ class Index extends React.Component {
           .project-caption {
             border-radius: 10px;
             display: inline-block;
-            background-color: yellow;
+            background-color: lightskyblue;
             position: relative;
             padding: 2px 6px;
             margin: 3px 5px 3px;
