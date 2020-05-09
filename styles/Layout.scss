@@ -1,3 +1,5 @@
+@import "../theme/theme";
+
 html,
 body,
 #__next {
@@ -8,11 +10,178 @@ body,
 body {
   margin: 0;
   padding: 0;
-  font-family: 'Rubik Mono One';
+  font-family: $header-font;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
 .template {
   top: 0;
+}
+
+.content {
+  font-family: $core-font;
+}
+
+.title {
+  background-color: black;
+}
+
+.text-container {
+  display: flex;
+  min-height: 95vh;
+}
+
+.hello-container {
+  background-color: white;
+  display: block;
+  border-radius: 8px;
+  border: 3px solid $primary;
+  margin: auto;
+  padding: 2%;
+  min-height: 75vh;
+  width: 45%;
+}
+
+.landing-title {
+  padding: 2% 0;
+  font-size: 45px;
+}
+
+.landing-paragraph {
+  font-size: 16px;
+}
+
+.landing-image {
+  margin: auto;
+}
+
+.container {
+  background-color: white;
+  display: block;
+  min-height: 80vh;
+  border-radius: 8px;
+  border: 3px solid salmon;
+  margin: 3% 0% 3%;
+  padding: 2%;
+}
+
+.container li {
+  list-style: none;
+  margin: 5px 0;
+}
+
+.container-title {
+  font-size: 30px;
+  font-weight: bold;
+}
+
+.jobs {
+  padding: 3% 0% 3%;
+  min-height: 90vh;
+  height: auto;
+  width: 100%;
+}
+
+.job {
+  background-color: lightsalmon;
+  border-radius: 10px;
+  padding: 10px;
+  margin: 10px;
+}
+
+.projects {
+  min-height: 90vh;
+  height: auto;
+  width: 100%;
+  display: grid;
+  grid-template-columns: 33% 33% 33%;
+  grid-template-rows: 50% 50%;
+  grid-row-gap: 1%;
+  justify-items: center;
+}
+
+.projects a {
+  font-size: 30px;
+}
+
+.projects p {
+  font-size: 12pt;
+}
+
+.project-name {
+  padding: 4px;
+}
+
+.caption-container {
+  margin: 0 0 5%;
+}
+
+.project-caption {
+  border-radius: 10px;
+  display: inline-block;
+  background-color: lightskyblue;
+  position: relative;
+  padding: 2px 6px;
+  margin: 3px 5px 3px;
+}
+
+.project-caption p {
+  display: inline;
+  text-align: center;
+  font-size: 14px;
+}
+
+.project-container {
+  text-align: center;
+  font-size: 16pt;
+  border-radius: 10px;
+  background-color: lightcoral;
+  padding: 3%;
+  margin: 3% 2% 2% 7%;
+  width: 80%;
+  height: auto;
+  min-width: 250px;
+  transition: all 500ms ease;
+}
+
+.project-container:hover {
+  background-color: tomato;
+  padding-top: 2%;
+  margin-top: 2%;
+  transition: all 500ms ease;
+}
+
+.project-pic {
+  text-align: center;
+  background-color: white;
+  margin-bottom: 10px;
+  max-height: 200px;
+  height: 200px;
+  width: 100%;
+}
+
+.project-info {
+  display: block;
+}
+
+.project-pic:hover {
+  cursor: pointer;
+}
+
+.interest p {
+  border-radius: 20px;
+  width: 20%;
+  padding: 1%;
+  text-align: center;
+  background-color: $primary;
+
+  a {
+    text-decoration: none;
+    color: black;
+  }
+
+  a:hover {
+    opacity: 0.6;
+  }
 }

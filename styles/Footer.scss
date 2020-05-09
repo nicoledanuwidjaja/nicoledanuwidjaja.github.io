@@ -1,10 +1,12 @@
+@import "../theme/theme";
+
 .foobar {
-  font-family: Roboto;
+  font-family: $core-font;
   text-align: center;
   width: auto;
   height: auto;
   margin: 20px;
   padding: 20px;
   border-radius: 20px;
-  color: salmon;
+  color: $primary;
 }

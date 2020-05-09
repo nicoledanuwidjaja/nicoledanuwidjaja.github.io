@@ -150,235 +150,67 @@ class Index extends React.Component {
             <>
                 <div className="content">
                     <Layout>
-                        <div className="text-container">
-                            <Element name="hello" className="hello-container">
-                                <div className="landing-title">Hello there!</div>
-                                <div className="landing-paragraph">
-                                    BLAH BLAH BLAH
-                                    I have always had my eye on business and technology, and now I can truly say that it is
-                                    where my passions lie. I am part of the founding team working on branding, designing,
-                                    programming, and pitching NUGig.tech: an up-and-coming platform that connects talented Northeastern
-                                    students for hire in technology with local companies.</div>
-                                <div className="landing-paragraph">
-                                    My greatest concentration is in Narwhal Company: an eCommerce business I started and have
-                                    made over $40,000 in revenue selling technology gadgets, everyday commodities,
-                                    educational resources, and private-label products. Through my business, I've partnered with unique
-                                    individuals and businesses from across the globe including China, Israel, Hong Kong, New
-                                    Zealand, Greece, and more. In addition, Narwhal Company also offers on-demand virtual
-                                    assistant services including, but not limited to, transcriptions, copywriting, and data
-                                    entry.</div>
-                                <div className="landing-paragraph">
-                                    I love working on projects! What I love about my major is that the majority of my work,
-                                    if not all of it, is completely team-oriented, which has allowed me to grow in my
-                                    perspectives and development as an aspiring software developer and entrepreneur. Hence, since
-                                    attending Northeastern, I have found immense interest with participating in hackathons at diverse
-                                    universities, and I plan to broaden my coverage.</div>
-                            </Element>
-                            {/*<div className="hello landing-image">*/}
-                            {/*    <img src={require('/static/christmas_nicole.jpeg')} alt="nicole picture" />*/}
-                            {/*</div>*/}
-                        </div>
-                        <Element name="projects" className="container">
-                            <div className="container-title">Projects</div>
-                            <div className="projects">
-                                {getProjects().map(project => (
-                                    <ProjectLink key={project.id} project={project}/>
-                                ))}
-                            </div>
-                        </Element>
-                        <Element name="jobs" className="container">
-                            <div className="container-title">Experience</div>
-                            <div className="jobs">
-                                {getJobs().map(job => (
-                                    <div className="job">
-                                        <JobLink key={job.id} job={job}/>
-                                    </div>
-                                ))}
-                            </div>
-                        </Element>
-                        <Element name="interests" className="container">
-                            <div className="container-title">Interests</div>
-                            {getInterests().map(interest => (
-                                <div className="interest">
-                                    <p key={interest.id}>{interest}</p>
-                                </div>
-                            ))}
-                        </Element>
+
                     </Layout>
                 </div>
-
-                <style jsx global>{`
-          .content {
-            font-family: 'Roboto';
-          }
-
-          .title {
-            background-color: black;
-          }
-          
-          .text-container {
-            display: flex;
-            min-height: 95vh;
-          }
-          
-          .hello-container {
-            background-color: white;
-            display: block;
-            border-radius: 8px;
-            border: 3px solid salmon;
-            margin: auto;
-            padding: 2%;
-            min-height: 75vh;
-            width: 45%;
-          }
-          
-          .landing-title {
-            padding: 2% 0%;
-            font-size: 45px;
-          }
-          
-          .landing-paragraph {
-            font-size: 16px;
-          }
-          
-          .landing-image {
-            margin: auto;
-          }
-
-          .container {
-            background-color: white;
-            display: block;
-            min-height: 80vh;
-            border-radius: 8px;
-            border: 3px solid salmon;
-            margin: 3% 0% 3%;
-            padding: 2%;
-          }
-
-          .container li {
-            list-style: none;
-            margin: 5px 0;
-          }
-          
-          .container-title {
-            font-size: 30px;
-            font-weight: bold;
-          }
-
-           .jobs {
-            padding: 3% 0% 3%;
-            min-height: 90vh;
-            height: auto;
-            width: 100%;
-          }
-
-          .job {
-            background-color: lightsalmon;
-            border-radius: 10px;
-            padding: 10px;
-            margin: 10px;
-          }
-
-          .projects {
-            min-height: 90vh;
-            height: auto;
-            width: 100%;
-            display: grid;
-            grid-template-columns: 33% 33% 33%;
-            grid-template-rows: 50% 50%;
-            grid-row-gap: 1%;
-            justify-items: center;
-          }
-
-          .projects a {
-            font-size: 30px;
-          }
-
-          .projects p {
-            font-size: 12pt;
-          }
-
-          .project-name {
-            padding: 4px;
-          }
-
-          .caption-container {
-            margin: 0% 0% 5%;
-          }
-
-          .project-caption {
-            border-radius: 10px;
-            display: inline-block;
-            background-color: lightskyblue;
-            position: relative;
-            padding: 2px 6px;
-            margin: 3px 5px 3px;
-          }
-
-          .project-caption p {
-            display: inline;
-            text-align: center;
-            font-size: 14px;
-          }
-
-          .project-container {
-            text-align: center;
-            font-size: 16pt;
-            border-radius: 10px;
-            background-color: lightcoral;
-            padding: 3%;
-            margin: 3% 2% 2% 7%;
-            width: 80%;
-            height: auto;
-            min-width: 250px;
-            transition: all 500ms ease;
-          }
-
-          .project-container:hover {
-            background-color: tomato;
-            padding-top: 2%;
-            margin-top: 2%;
-            transition: all 500ms ease;
-          }
-
-          .project-pic {
-            text-align: center;
-            background-color: white;
-            margin-bottom: 10px;
-            max-height: 200px;
-            height: 200px;
-            width: 100%;
-          }
-
-          .project-info {
-            display: block;
-          }
-
-          .project-pic:hover {
-            cursor: pointer;
-          }
-
-          .interest p {
-            border-radius: 20px;
-            width: 20%;
-            padding: 1%;
-            text-align: center;
-            background-color: salmon;
-          }
-
-          ul {
-            padding: 0;
-          }
-
-          a {
-            text-decoration: none;
-            color: black;
-          }
-
-          a:hover {
-            opacity: 0.6;
-          }
-        `}</style>
+                {/*<div className="content">*/}
+                {/*    <Layout>*/}
+                {/*        <div className="text-container">*/}
+                {/*            <Element name="hello" className="hello-container">*/}
+                {/*                <div className="landing-title">Hello there!</div>*/}
+                {/*                <div className="landing-paragraph">*/}
+                {/*                    BLAH BLAH BLAH*/}
+                {/*                    I have always had my eye on business and technology, and now I can truly say that it is*/}
+                {/*                    where my passions lie. I am part of the founding team working on branding, designing,*/}
+                {/*                    programming, and pitching NUGig.tech: an up-and-coming platform that connects talented Northeastern*/}
+                {/*                    students for hire in technology with local companies.</div>*/}
+                {/*                <div className="landing-paragraph">*/}
+                {/*                    My greatest concentration is in Narwhal Company: an eCommerce business I started and have*/}
+                {/*                    made over $40,000 in revenue selling technology gadgets, everyday commodities,*/}
+                {/*                    educational resources, and private-label products. Through my business, I've partnered with unique*/}
+                {/*                    individuals and businesses from across the globe including China, Israel, Hong Kong, New*/}
+                {/*                    Zealand, Greece, and more. In addition, Narwhal Company also offers on-demand virtual*/}
+                {/*                    assistant services including, but not limited to, transcriptions, copywriting, and data*/}
+                {/*                    entry.</div>*/}
+                {/*                <div className="landing-paragraph">*/}
+                {/*                    I love working on projects! What I love about my major is that the majority of my work,*/}
+                {/*                    if not all of it, is completely team-oriented, which has allowed me to grow in my*/}
+                {/*                    perspectives and development as an aspiring software developer and entrepreneur. Hence, since*/}
+                {/*                    attending Northeastern, I have found immense interest with participating in hackathons at diverse*/}
+                {/*                    universities, and I plan to broaden my coverage.</div>*/}
+                {/*            </Element>*/}
+                {/*            /!*<div className="hello landing-image">*!/*/}
+                {/*            /!*    <img src={require('/static/christmas_nicole.jpeg')} alt="nicole picture" />*!/*/}
+                {/*            /!*</div>*!/*/}
+                {/*        </div>*/}
+                {/*        <Element name="projects" className="container">*/}
+                {/*            <div className="container-title">Projects</div>*/}
+                {/*            <div className="projects">*/}
+                {/*                {getProjects().map(project => (*/}
+                {/*                    <ProjectLink key={project.id} project={project}/>*/}
+                {/*                ))}*/}
+                {/*            </div>*/}
+                {/*        </Element>*/}
+                {/*        <Element name="jobs" className="container">*/}
+                {/*            <div className="container-title">Experience</div>*/}
+                {/*            <div className="jobs">*/}
+                {/*                {getJobs().map(job => (*/}
+                {/*                    <div className="job">*/}
+                {/*                        <JobLink key={job.id} job={job}/>*/}
+                {/*                    </div>*/}
+                {/*                ))}*/}
+                {/*            </div>*/}
+                {/*        </Element>*/}
+                {/*        <Element name="interests" className="container">*/}
+                {/*            <div className="container-title">Interests</div>*/}
+                {/*            {getInterests().map(interest => (*/}
+                {/*                <div className="interest">*/}
+                {/*                    <p key={interest.id}>{interest}</p>*/}
+                {/*                </div>*/}
+                {/*            ))}*/}
+                {/*        </Element>*/}
+                {/*    </Layout>*/}
+                {/*</div>*/}
             </>
         );
     }

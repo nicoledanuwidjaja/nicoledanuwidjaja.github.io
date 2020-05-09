@@ -7,12 +7,11 @@ const Layout = props => (
         <Head>
             <title>Nicole Danuwidjaja Portfolio</title>
             <meta name="viewport" content="initial-scale=1.0, width=device-width"/>
-            <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Rubik+Mono+One" />
         </Head>
         <div className="template">
             <Header/>
             {props.children}
-            <Footer/>
+            {/*<Footer/>*/}
         </div>
     </div>
 );
