@@ -1,24 +1,54 @@
 @import "../theme/theme";
 
 .header {
+  position: absolute;
+  top: 0;
+  right: 0;
   font-family: $header-font;
   display: flex;
   flex-direction: column;
   width: 100%;
-  height: 100vh;
+}
 
-  .hamburger {
-    background-image: url('../public/beanie_cartoon_nicole_faceshot.png');
-    cursor: pointer;
+.background {
+  .background-column {
     position: absolute;
-    display: flex;
-    flex-direction: column;
-    width: 36px;
-    height: 36px;
-    top: 10px;
-    right: 1%;
-    z-index: 101;
+    top: 0;
+    right: 0;
+    height: 100vh;
 
+    @media (max-width: $phone) {
+      display: none;
+    }
+  }
+}
+
+.hamburger {
+  background-image: url('../public/beanie_cartoon_nicole_faceshot.png');
+  cursor: pointer;
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  width: 36px;
+  height: 36px;
+  top: 10px;
+  right: 1%;
+  z-index: 101;
+
+  .ham-bar {
+    display: none;
+  }
+
+  .nicole-burger {
+    z-index: 100;
+    width: 100px;
+    height: 100px;
+    position: absolute;
+    top: 2%;
+    right: 2%;
+  }
+
+  @media (max-width: $phone) {
     .ham-bar {
       display: block;
       height: 4px;
@@ -26,6 +56,10 @@
       background-color: $primary;
       margin-bottom: 5px;
       right: 0;
+    }
+
+    .nicole-burger {
+      display: none;
     }
   }
 }
@@ -70,27 +104,11 @@
   }
 }
 
-.background-column {
-  position: absolute;
-  top: 0;
-  right: 0;
-  height: 100vh;
-}
-
 .nicole-logo {
   position: fixed;
   top: 50%;
   right: 0;
   transform: translate(-25%, -50%);
-}
-
-.nicole-burger {
-  z-index: 100;
-  width: 100px;
-  height: 100px;
-  position: absolute;
-  top: 2%;
-  right: 2%;
 }
 
 .box-row {
@@ -108,39 +126,6 @@
   margin: 1%;
   color: black;
 }
-
-.landing-container {
-  max-width: 500px;
-  text-align: left;
-  margin-top: 15%;
-  padding: 2% 15%;
-  color: $primary;
-  font-size: 35pt;
-  opacity: 1;
-  animation-name: fadeInName;
-  animation-iteration-count: 1;
-  animation-timing-function: ease-in;
-  animation-duration: 1s;
-
-  .website-title {
-    h1 {
-      font-size: 50pt;
-    }
-  }
-}
-
-.social-icons {
-  align-items: center;
-  margin: auto;
-  display: flex;
-
-  .social {
-    margin-right: 20px;
-    width: 40px;
-    height: 40px;
-  }
-}
-
 
 .scrolled {
   display: flex;

@@ -1,10 +1,5 @@
 import Link from 'next/link';
 import React, {Component} from 'react';
-import LinkedInLogo from '../public/linkedin.png';
-import GitHubLogo from '../public/github.png';
-import SpotifyLogo from '../public/spotify.png';
-import RedBackground from '../public/red_strip.svg';
-import NicoleIcon from '../public/beanie_cartoon_nicole.png';
 import NicoleBurger from '../public/beanie_cartoon_nicole_faceshot_white.png';
 import {Link as ScrollLink} from 'react-scroll';
 
@@ -21,7 +16,6 @@ class Header extends Component {
 
     toggleMenu(e) {
         e.preventDefault();
-
         this.setState({showMenu: !this.state.showMenu});
     }
 
@@ -40,43 +34,24 @@ class Header extends Component {
     render() {
         return (
             <div className="header">
-                <div className="landing-container">
-                    <div className="website-title">
-                        <h1>Nicole Danuwidjaja</h1>
-                    </div>
-                    <div className="social-icons">
-                        <a href="https://www.linkedin.com/in/nicoledanuwidjaja">
-                            <img className="social" src={LinkedInLogo} alt="linkedin logo"/>
-                        </a>
-                        <a href="https://github.com/nicoledanuwidjaja">
-                            <img className="social" src={GitHubLogo} alt="github logo"/>
-                        </a>
-                        <a href="https://open.spotify.com/user/danuwidjaja">
-                            <img className="social" src={SpotifyLogo} alt="spotify logo"/>
-                        </a>
+                <div className={this.state.showMenu ? 'menu open' : 'menu'}>
+                    <div className="menu-container">
+                        <ul className="menu-items">
+                            <li className="menu-item"><a href="#">About</a></li>
+                            <li className="menu-item"><a href="#">Projects</a></li>
+                            <li className="menu-item"><a href="#">Experience</a></li>
+                        </ul>
                     </div>
                 </div>
-                <div className="background">
-                    <img className="background-column" src={RedBackground} alt="background"/>
-                    <div className="hamburger" onClick={this.toggleMenu}>
-                        <img className="nicole-burger" src={NicoleBurger} alt="Menu"/>
-                        {/* save for mobile */}
-                        {/*<span className="ham-bar"/>*/}
-                        {/*<span className="ham-bar"/>*/}
-                        {/*<span className="ham-bar"/>*/}
-                    </div>
-                    <div className={this.state.showMenu ? 'menu open' : 'menu'}>
-                        <div className="menu-container">
-                            <ul className="menu-items">
-                                <li className="menu-item"><a href="#">About</a></li>
-                                <li className="menu-item"><a href="#">Projects</a></li>
-                                <li className="menu-item"><a href="#">Experience</a></li>
-                            </ul>
-                        </div>
-                    </div>
 
-                    <img className="nicole-logo" src={NicoleIcon} alt="Nicole Logo"/>
+                <div className="hamburger" onClick={this.toggleMenu}>
+                    <img className="nicole-burger" src={NicoleBurger} alt="Menu"/>
+                    {/* save for mobile */}
+                    <span className="ham-bar"/>
+                    <span className="ham-bar"/>
+                    <span className="ham-bar"/>
                 </div>
+
                 {/*<div className={this.state.scrolled ? 'scrolled' : 'box-row'}>*/}
                 {/*    <div className="social">*/}
                 {/*        <a href="https://github.com/nicoledanuwidjaja"><i className="fa fa-github fa-lg"/></a>*/}
