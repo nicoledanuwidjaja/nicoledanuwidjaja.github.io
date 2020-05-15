@@ -8,6 +8,11 @@
   display: flex;
   flex-direction: column;
   width: 100%;
+
+  @media(max-width: $phone) {
+    background-color: $primary;
+    height: 50px;
+  }
 }
 
 .background {
@@ -32,7 +37,7 @@
   width: 36px;
   height: 36px;
   top: 10px;
-  right: 1%;
+  right: 3%;
   z-index: 101;
 
   .ham-bar {
@@ -48,12 +53,16 @@
     right: 2%;
   }
 
+  .nicole-burger:focus {
+    outline: none;
+  }
+
   @media (max-width: $phone) {
     .ham-bar {
       display: block;
       height: 4px;
       width: 36px;
-      background-color: $primary;
+      background-color: white;
       margin-bottom: 5px;
       right: 0;
     }
@@ -70,6 +79,11 @@
 
 .open {
   display: block;
+  animation-name: fadeInName;
+  animation-iteration-count: 1;
+  animation-timing-function: ease-in;
+  animation-duration: 0.5s;
+  z-index: 100;
 }
 
 .menu-container {
@@ -81,14 +95,18 @@
   background: $primary;
   width: 100%;
   height: 100vh;
-  z-index: 100;
 
   .menu-items {
-    display: table-cell;
+    margin: 20vh auto;
+    padding: 0;
+    display: table;
     text-align: center;
-    vertical-align: middle;
     list-style: none;
 
+    .menu-item li {
+      display: table-cell;
+      vertical-align: middle;
+    }
     .menu-item li:hover {
       background-color: yellow;
     }
@@ -100,6 +118,10 @@
       font-size: 5vh;
       line-height: 2.5;
       color: white;
+    }
+
+    .menu-item a:hover {
+      background-color: red;
     }
   }
 }

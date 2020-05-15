@@ -6,6 +6,18 @@ body {
   font-family: $header-font;
 }
 
+.layout::before {
+  content: "";
+  margin-top: 100%;
+}
+
+.layout {
+  animation-name: fadeInName;
+  animation-iteration-count: 1;
+  animation-timing-function: ease-in;
+  animation-duration: 1s;
+}
+
 .content {
   font-family: $core-font;
 }
@@ -32,10 +44,10 @@ body {
 
 .landing-container {
   max-height: 100vh;
-  max-width: 500px;
+  max-width: 750px;
   text-align: left;
-  margin-top: 15%;
-  padding: 2% 15%;
+  margin: 10% 0 0 15%;
+  padding: 2% 0;
   color: $primary;
   font-size: 35pt;
   opacity: 1;
@@ -61,22 +73,29 @@ body {
       margin-right: 20px;
       width: 40px;
       height: 40px;
+
+      @media (max-width: $phone) {
+        margin: 0 20px;
+      }
     }
   }
 
   @media (max-width: $phone) {
     text-align: center;
     padding: 0;
+    margin: 15% auto;
 
     .website-title h1 {
       font-size: 24pt;
     }
 
     .social-icons {
+      position: absolute;
+      left: 0;
+      bottom: 0;
       margin-top: 50vh;
       padding: 5% 0 20%;
       width: 100%;
-      bottom: 0;
       background-color: $primary;
       justify-content: center;
     }
@@ -97,14 +116,110 @@ body {
 }
 
 .container {
-  background-color: white;
-  display: block;
-  min-height: 80vh;
-  border-radius: 8px;
-  border: 3px solid salmon;
-  margin: 3% 0 3%;
-  padding: 2%;
+  .container-header {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 20vh;
+
+    .container-title {
+      text-align: center;
+      font-family: $header-font;
+      color: $primary;
+      font-size: 50px;
+      font-weight: bold;
+    }
+  }
+
+  .projects {
+    min-height: 100vh;
+    height: auto;
+    width: 100%;
+    padding: 5% 0 10%;
+    display: grid;
+    grid-template-columns: 25% 25% 25% 25%;
+    grid-template-rows: 60% 60%;
+    grid-row-gap: 5%;
+    justify-items: center;
+    background-color: $background;
+
+    a {
+      font-size: 30px;
+    }
+
+    p {
+      font-size: 12pt;
+    }
+
+    .project-info {
+      display: block;
+
+      .project-name {
+        font-family: $core-font;
+        font-size: 35px;
+        font-weight: bold;
+        padding: 4px;
+
+        a {
+          color: black;
+        }
+      }
+
+      .caption-container {
+        margin: 0 0 5%;
+
+        .project-caption {
+          border-radius: 10px;
+          display: inline-block;
+          background-color: lightskyblue;
+          position: relative;
+          padding: 2px 6px;
+          margin: 3px 5px 3px;
+        }
+
+        .project-caption p {
+          display: inline;
+          text-align: center;
+          font-size: 14px;
+        }
+      }
+    }
+
+    .project-container {
+      text-align: center;
+      font-size: 16pt;
+      border-radius: 35px;
+      padding: 3%;
+      margin: 3% 2% 2% 7%;
+      background-color: white;
+      height: 400px;
+      width: 300px;
+      transition: all 500ms ease;
+
+      :hover {
+        background-color: lightgoldenrodyellow;
+        padding-top: 2%;
+        margin-top: 2%;
+        transition: all 500ms ease;
+      }
+    }
+
+    .project-pic {
+      text-align: center;
+      background-color: lightskyblue;
+      margin-bottom: 10px;
+      border-radius: 35px 35px 0 0;
+      height: 60%;
+      width: 100%;
+    }
+
+    .project-pic:hover {
+      cursor: pointer;
+    }
+  }
 }
+
+// OLD STUFF HERE
 
 .container li {
   list-style: none;
@@ -128,85 +243,6 @@ body {
   border-radius: 10px;
   padding: 10px;
   margin: 10px;
-}
-
-.projects {
-  min-height: 90vh;
-  height: auto;
-  width: 100%;
-  display: grid;
-  grid-template-columns: 33% 33% 33%;
-  grid-template-rows: 50% 50%;
-  grid-row-gap: 1%;
-  justify-items: center;
-}
-
-.projects a {
-  font-size: 30px;
-}
-
-.projects p {
-  font-size: 12pt;
-}
-
-.project-name {
-  padding: 4px;
-}
-
-.caption-container {
-  margin: 0 0 5%;
-}
-
-.project-caption {
-  border-radius: 10px;
-  display: inline-block;
-  background-color: lightskyblue;
-  position: relative;
-  padding: 2px 6px;
-  margin: 3px 5px 3px;
-}
-
-.project-caption p {
-  display: inline;
-  text-align: center;
-  font-size: 14px;
-}
-
-.project-container {
-  text-align: center;
-  font-size: 16pt;
-  border-radius: 10px;
-  background-color: lightcoral;
-  padding: 3%;
-  margin: 3% 2% 2% 7%;
-  width: 80%;
-  height: auto;
-  min-width: 250px;
-  transition: all 500ms ease;
-}
-
-.project-container:hover {
-  background-color: tomato;
-  padding-top: 2%;
-  margin-top: 2%;
-  transition: all 500ms ease;
-}
-
-.project-pic {
-  text-align: center;
-  background-color: white;
-  margin-bottom: 10px;
-  max-height: 200px;
-  height: 200px;
-  width: 100%;
-}
-
-.project-info {
-  display: block;
-}
-
-.project-pic:hover {
-  cursor: pointer;
 }
 
 .interest p {

@@ -2,6 +2,7 @@ import Link from 'next/link';
 import React, {Component} from 'react';
 import NicoleBurger from '../public/beanie_cartoon_nicole_faceshot_white.png';
 import {Link as ScrollLink} from 'react-scroll';
+import Footer from "./Footer";
 
 class Header extends Component {
     constructor(props) {
@@ -41,6 +42,7 @@ class Header extends Component {
                             <li className="menu-item"><a href="#">Projects</a></li>
                             <li className="menu-item"><a href="#">Experience</a></li>
                         </ul>
+                        <Footer/>
                     </div>
                 </div>
 

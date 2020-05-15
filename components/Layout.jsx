@@ -1,6 +1,6 @@
 import Header from './Header';
 import Landing from './Landing';
-import Footer from './Footer';
+import Projects from './Projects';
 import Head from 'next/head';
 
 const Layout = props => (
@@ -10,9 +10,9 @@ const Layout = props => (
             <meta name="viewport" content="initial-scale=1.0, width=device-width"/>
         </Head>
         <Header/>
-        <Landing/>
+        {/*<Landing/>*/}
+        <Projects/>
         {props.children}
-        {/*<Footer/>*/}
     </div>
 );
 
