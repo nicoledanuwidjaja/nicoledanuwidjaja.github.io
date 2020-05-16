@@ -143,6 +143,20 @@ body {
     justify-items: center;
     background-color: $background;
 
+    @media (max-width: $laptop) {
+      grid-template-columns: 33% 33% 33%;
+    }
+
+    @media (max-width: $hybrid) {
+      grid-template-columns: 50% 50%;
+      grid-template-rows: 33% 33%;
+    }
+
+    @media (max-width: $phone) {
+      grid-template-columns: 100%;
+      grid-template-rows: 15%;
+    }
+
     a {
       font-size: 30px;
     }
@@ -210,7 +224,7 @@ body {
         display: inline-block;
         position: relative;
         padding: 0 5px;
-        margin: 3px 5px 3px;
+        margin: 5px 10px;
 
         p {
           font-weight: bolder;

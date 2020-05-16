@@ -25,7 +25,7 @@ const ProjectLink = ({project}) => {
                 <div className="project-pic"
                      onMouseEnter={() => showTags(true)}
                      onMouseLeave={() => showTags(false)}>
-                    {
+                    { isShowing &&
                         (<div className="caption-container">
                             {project.technologies.map((technology) =>
                                 <div className="project-caption">
