@@ -120,7 +120,7 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
-    height: 20vh;
+    height: 30vh;
 
     .container-title {
       text-align: center;
@@ -138,7 +138,7 @@ body {
     padding: 5% 0 10%;
     display: grid;
     grid-template-columns: 25% 25% 25% 25%;
-    grid-template-rows: 60% 60%;
+    grid-template-rows: 50% 50%;
     grid-row-gap: 5%;
     justify-items: center;
     background-color: $background;
@@ -164,57 +164,63 @@ body {
           color: black;
         }
       }
-
-      .caption-container {
-        margin: 0 0 5%;
-
-        .project-caption {
-          border-radius: 10px;
-          display: inline-block;
-          background-color: lightskyblue;
-          position: relative;
-          padding: 2px 6px;
-          margin: 3px 5px 3px;
-        }
-
-        .project-caption p {
-          display: inline;
-          text-align: center;
-          font-size: 14px;
-        }
-      }
     }
 
     .project-container {
       text-align: center;
       font-size: 16pt;
       border-radius: 35px;
-      padding: 3%;
-      margin: 3% 2% 2% 7%;
+      margin: auto;
       background-color: white;
-      height: 400px;
-      width: 300px;
+      height: 380px;
+      width: 280px;
       transition: all 500ms ease;
 
-      :hover {
-        background-color: lightgoldenrodyellow;
-        padding-top: 2%;
-        margin-top: 2%;
+      .project-pic {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background-color: lightskyblue;
+        margin-bottom: 10px;
+        border-radius: 35px 35px 0 0;
+        height: 80%;
+        width: 100%;
+      }
+
+      .project-pic:hover {
+        background-color: $hovered;
+        cursor: pointer;
         transition: all 500ms ease;
       }
     }
 
-    .project-pic {
-      text-align: center;
-      background-color: lightskyblue;
-      margin-bottom: 10px;
-      border-radius: 35px 35px 0 0;
-      height: 60%;
-      width: 100%;
-    }
+    .caption-container {
+      margin: 0 0 5%;
+      animation-name: fadeInName;
+      animation-iteration-count: 1;
+      animation-timing-function: ease-in;
+      animation-duration: 0.5s;
 
-    .project-pic:hover {
-      cursor: pointer;
+      .project-caption {
+        background-color: $tag-color;
+        min-width: 80px;
+        color: white;
+        border-radius: 10px;
+        height: auto;
+        display: inline-block;
+        position: relative;
+        padding: 0 5px;
+        margin: 3px 5px 3px;
+
+        p {
+          font-weight: bolder;
+          font-size: 15px;
+          font-family: $tag-font;
+          text-transform: uppercase;
+          letter-spacing: 2px;
+          line-height: 7px;
+        }
+      }
     }
   }
 }
@@ -255,9 +261,5 @@ body {
   a {
     text-decoration: none;
     color: black;
-  }
-
-  a:hover {
-    opacity: 0.6;
   }
 }
