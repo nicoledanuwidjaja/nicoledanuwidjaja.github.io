@@ -1,17 +1,23 @@
 import React, { useState } from 'react';
 import Link from 'next/link';
+import MentorMatch from "../public/mentormatch.png";
+import CanTrip from "../public/cantrip.png";
+import ScrapeThePrez from "../public/scrapetheprez.png";
+
+
 
 const getProjects = () => {
     return [
         {
             id: 'mentormatch',
+            image: MentorMatch,
             title: 'MentorMatch',
             technologies: ['GraphQL', 'React', 'Node', 'Bookshelf', 'Knex', 'PostgreSQL']
         },
-        {id: 'scrapetheprez', title: 'ScrapeThePrez', technologies: ['Python', 'Firebase']},
+        {id: 'scrapetheprez', image: ScrapeThePrez, title: 'ScrapeThePrez', technologies: ['Python', 'Firebase']},
         {id: 'tricone', title: 'Tricone', technologies: ['Arduino BLE', 'Vue.js']},
         {id: 'garbadoor', title: 'GarbaDoor', technologies: ['Python', 'React', 'Arduino', 'Firebase']},
-        {id: 'cantrip', title: 'CanTrip', technologies: ['Java', 'Firebase', 'MySQL']},
+        {id: 'cantrip', image: CanTrip, title: 'CanTrip', technologies: ['Java', 'Firebase', 'MySQL']},
         {id: 'test6', title: 'Fable', technologies: ['Swift', 'Kotlin', 'React']}
     ];
 };
@@ -25,6 +31,7 @@ const ProjectLink = ({project}) => {
                 <div className="project-pic"
                      onMouseEnter={() => showTags(true)}
                      onMouseLeave={() => showTags(false)}>
+                    <img src={project.image} />
                     { isShowing &&
                         (<div className="caption-container">
                             {project.technologies.map((technology) =>

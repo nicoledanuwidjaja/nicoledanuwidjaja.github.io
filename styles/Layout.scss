@@ -120,7 +120,7 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
-    height: 30vh;
+    height: 25vh;
 
     .container-title {
       text-align: center;
@@ -169,10 +169,11 @@ body {
       display: block;
 
       .project-name {
+        text-align: left;
         font-family: $core-font;
         font-size: 35px;
         font-weight: bold;
-        padding: 4px;
+        padding: 2% 10%;
 
         a {
           color: black;
@@ -194,22 +195,32 @@ body {
         display: flex;
         align-items: center;
         justify-content: center;
-        background-color: lightskyblue;
+        background-color: white;
         margin-bottom: 10px;
         border-radius: 35px 35px 0 0;
         height: 80%;
-        width: 100%;
+        max-width: 280px;
+
+        img {
+          position: relative;
+          max-width: 100%;
+          max-height: 100%;
+        }
       }
 
       .project-pic:hover {
-        background-color: $hovered;
         cursor: pointer;
         transition: all 500ms ease;
       }
     }
 
     .caption-container {
-      margin: 0 0 5%;
+      background-color: $hovered;
+      position: absolute;
+      width: 280px;
+      height: 305px;
+      border-radius: 35px 35px 0 0;
+      margin: 0 auto;
       animation-name: fadeInName;
       animation-iteration-count: 1;
       animation-timing-function: ease-in;
