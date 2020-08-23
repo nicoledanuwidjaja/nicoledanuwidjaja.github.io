@@ -17,6 +17,7 @@
 
 .background {
   .background-column {
+    z-index: 2;
     position: absolute;
     top: 0;
     right: 0;
@@ -26,12 +27,21 @@
       display: none;
     }
   }
+
+  .scroll-message {
+    z-index: 2;
+    font-size: 1em;
+    color: white;
+    position: absolute;
+    top: 90%;
+    right: 0;
+  }
 }
 
 .hamburger {
   background-image: url('../public/beanie_cartoon_nicole_faceshot.png');
   cursor: pointer;
-  position: absolute;
+  position: fixed;
   display: flex;
   flex-direction: column;
   width: 36px;
@@ -48,7 +58,7 @@
     z-index: 100;
     width: 100px;
     height: 100px;
-    position: absolute;
+    position: fixed;
     top: 2%;
     right: 2%;
   }
@@ -127,7 +137,8 @@
 }
 
 .nicole-logo {
-  position: fixed;
+  position: absolute;
+  z-index: 10;
   top: 50%;
   right: 0;
   transform: translate(-25%, -50%);

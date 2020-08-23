@@ -4,8 +4,6 @@ import MentorMatch from "../public/mentormatch.png";
 import CanTrip from "../public/cantrip.png";
 import ScrapeThePrez from "../public/scrapetheprez.png";
 
-
-
 const getProjects = () => {
     return [
         {
