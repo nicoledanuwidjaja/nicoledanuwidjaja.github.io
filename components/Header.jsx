@@ -1,6 +1,7 @@
 import Link from 'next/link';
 import React, {Component} from 'react';
 import NicoleBurger from '../public/beanie_cartoon_nicole_faceshot_white.png';
+import NicoleBurgerHover from '../public/beanie_cartoon_nicole_faceshot_white_full.png';
 import {Link as ScrollLink} from 'react-scroll';
 import Footer from "./Footer";
 
@@ -38,8 +39,8 @@ class Header extends Component {
                 <div className={this.state.showMenu ? 'menu open' : 'menu'}>
                     <div className="menu-container">
                         <ul className="menu-items">
-                            <li className="menu-item"><a href="#">About</a></li>
-                            <li className="menu-item"><a href="#">Projects</a></li>
+                            <li className="menu-item"><a href="/about">About</a></li>
+                            <li className="menu-item"><a href="#">Blog</a></li>
                             <li className="menu-item"><a href="#">Experience</a></li>
                         </ul>
                         <Footer/>
@@ -47,7 +48,10 @@ class Header extends Component {
                 </div>
 
                 <div className="hamburger" onClick={this.toggleMenu}>
-                    <img className="nicole-burger" src={NicoleBurger} alt="Menu"/>
+                    <a>
+                        <img className="nicole-burger" src={NicoleBurger} alt="Menu"/>
+                        <img className="nicole-burger-hover" src={NicoleBurgerHover} alt="Menu Hovered"/>
+                    </a>
                     {/* save for mobile */}
                     <span className="ham-bar"/>
                     <span className="ham-bar"/>

@@ -4,16 +4,9 @@ import MentorMatch from "../public/mentormatch.png";
 import CanTrip from "../public/cantrip.png";
 import ScrapeThePrez from "../public/scrapetheprez.png";
 
-
-
 const getProjects = () => {
     return [
-        {
-            id: 'mentormatch',
-            image: MentorMatch,
-            title: 'MentorMatch',
-            technologies: ['GraphQL', 'React', 'Node', 'Bookshelf', 'Knex', 'PostgreSQL']
-        },
+        {id: 'mentormatch', image: MentorMatch, title: 'MentorMatch', technologies: ['GraphQL', 'React', 'Node', 'Bookshelf', 'Knex', 'PostgreSQL']},
         {id: 'scrapetheprez', image: ScrapeThePrez, title: 'ScrapeThePrez', technologies: ['Python', 'Firebase']},
         {id: 'tricone', title: 'Tricone', technologies: ['Arduino BLE', 'Vue.js']},
         {id: 'garbadoor', title: 'GarbaDoor', technologies: ['Python', 'React', 'Arduino', 'Firebase']},

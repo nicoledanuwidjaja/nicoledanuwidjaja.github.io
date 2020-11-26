@@ -148,11 +148,7 @@ class Index extends React.Component {
     render() {
         return (
             <>
-                <div className="content">
-                    <Layout>
-
-                    </Layout>
-                </div>
+                <Layout />
                 {/*<div className="content">*/}
                 {/*    <Layout>*/}
                 {/*        <div className="text-container">*/}
