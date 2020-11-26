@@ -27,6 +27,7 @@ const Landing = () => (
         <div className="background">
             <img className="background-column" src={RedBackground} alt="background"/>
             <img className="nicole-logo" src={NicoleIcon} alt="Nicole Logo"/>
+            <div className="scroll-message">Scroll right...</div>
         </div>
     </div>
 );

@@ -57,26 +57,6 @@ class Header extends Component {
                     <span className="ham-bar"/>
                     <span className="ham-bar"/>
                 </div>
-
-                {/*<div className={this.state.scrolled ? 'scrolled' : 'box-row'}>*/}
-                {/*    <div className="social">*/}
-                {/*        <a href="https://github.com/nicoledanuwidjaja"><i className="fa fa-github fa-lg"/></a>*/}
-                {/*    </div>*/}
-                {/*    <ScrollLink to="hello" spy={true} smooth={true} offset={-80} activeClass="active">*/}
-                {/*        <div className={this.state.scrolled ? 'navlink-fixed' : 'box navlink'}>*/}
-                {/*            {this.state.scrolled ? 'Nicole Danuwidjaja' : 'Home'}*/}
-                {/*        </div>*/}
-                {/*    </ScrollLink>*/}
-                {/*    <ScrollLink to="projects" spy={true} smooth={true} offset={-80} activeClass="active">*/}
-                {/*        <div className={this.state.scrolled ? 'navlink-fixed' : 'box navlink'}>Projects</div>*/}
-                {/*    </ScrollLink>*/}
-                {/*    <ScrollLink to="jobs" spy={true} smooth={true} offset={-80} activeClass="active">*/}
-                {/*        <div className={this.state.scrolled ? 'navlink-fixed' : 'box navlink'}>Experience</div>*/}
-                {/*    </ScrollLink>*/}
-                {/*    <ScrollLink to="interests" spy={true} smooth={true} offset={-80} activeClass="active">*/}
-                {/*        <div className={this.state.scrolled ? 'navlink-fixed' : 'box navlink'}>Interests</div>*/}
-                {/*    </ScrollLink>*/}
-                {/*</div>*/}
             </div>
         );
     }
