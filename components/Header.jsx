@@ -2,7 +2,6 @@ import Link from 'next/link';
 import React, {Component} from 'react';
 import NicoleBurger from '../public/beanie_cartoon_nicole_faceshot_white.png';
 import NicoleBurgerHover from '../public/beanie_cartoon_nicole_faceshot_white_full.png';
-import {Link as ScrollLink} from 'react-scroll';
 import Footer from "./Footer";
 
 class Header extends Component {

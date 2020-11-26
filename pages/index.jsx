@@ -1,7 +1,6 @@
 import React from 'react';
 import Layout from '../components/Layout';
 import Link from 'next/link';
-import {Element, Events, animateScroll as scroll, scroller} from 'react-scroll';
 
 const getProjects = () => {
     return [
@@ -94,45 +93,6 @@ const JobLink = ({job}) => (
 );
 
 class Index extends React.Component {
-
-    constructor(props) {
-        super(props);
-        this.scrollToTop = this.scrollToTop.bind(this);
-    }
-
-    scrollToTop() {
-        scroll.scrollToTop();
-    }
-
-    scrollTo() {
-        scroller.scrollTo('scroll-to-element', {
-            duration: 800,
-            delay: 0,
-            smooth: 'easeInOutQuart'
-        })
-    }
-
-    scrollToWithContainer() {
-
-        let goToContainer = new Promise((resolve, reject) => {
-
-            scroller.scrollTo('scroll-container', {
-                duration: 800,
-                delay: 0,
-                smooth: 'easeInOutQuart'
-            });
-
-        });
-
-        goToContainer.then(() =>
-            scroller.scrollTo('scroll-container-second-element', {
-                duration: 800,
-                delay: 0,
-                smooth: 'easeInOutQuart',
-                containerId: 'scroll-container'
-            }));
-    }
-
     static async getInitialProps() {
         const projectData = getProjects();
         const jobData = getJobs();
