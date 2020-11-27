@@ -1,7 +1,7 @@
 import Link from 'next/link';
 import React, {Component} from 'react';
-import NicoleBurger from '../public/beanie_cartoon_nicole_faceshot_white.png';
-import NicoleBurgerHover from '../public/beanie_cartoon_nicole_faceshot_white_full.png';
+import NicoleBurger from '../public/beanie_cartoon_nicole_faceshot.png';
+import NicoleBurgerHover from '../public/beanie_cartoon_nicole_faceshot_red_full.png';
 import Footer from "./Footer";
 
 class Header extends Component {
@@ -38,6 +38,7 @@ class Header extends Component {
                 <div className={this.state.showMenu ? 'menu open' : 'menu'}>
                     <div className="menu-container">
                         <ul className="menu-items">
+                            <li className="menu-item"><a href="/">Home</a></li>
                             <li className="menu-item"><a href="/about">About</a></li>
                             <li className="menu-item"><a href="#">Blog</a></li>
                             <li className="menu-item"><a href="#">Experience</a></li>

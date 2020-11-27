@@ -43,16 +43,15 @@
 
 .hamburger {
   cursor: pointer;
-  background-image: url('../public/beanie_cartoon_nicole_faceshot.png');
   position: absolute;
   display: flex;
   flex-direction: column;
   width: 36px;
   height: 36px;
-  top: 10px;
-  right: 3%;
+  top: 2%;
+  right: 4%;
   z-index: 101;
-  transform: translate(calc(-102vw), 75%);
+  transform: translate(calc(50%), 75%);
 
   .ham-bar {
     display: none;
@@ -130,7 +129,7 @@
   height: 100vh;
 
   .menu-items {
-    margin: 20vh auto;
+    margin: 15vh auto;
     padding: 0;
     display: table;
     text-align: center;

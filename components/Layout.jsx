@@ -19,11 +19,18 @@ const Layout = props => (
             <meta name="theme-color" content="#ffffff" />
             <meta name="viewport" content="initial-scale=1.0, width=device-width"/>
         </Head>
-        <HorizontalScroll>
+        {(props.page === "Home") ?
+            <HorizontalScroll>
+                <Header style={child} />
+                <Landing page={props.page} style={child} />
+                <Projects style={child} />
+            </HorizontalScroll>
+        :
+        <>
             <Header style={child} />
-            <Landing style={child} />
-            <Projects style={child} />
-        </HorizontalScroll>
+            <Landing page={props.page} style={child} />
+        </>
+        }
         {props.children}
     </div>
 );

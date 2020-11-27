@@ -3,21 +3,6 @@ import Layout from '../components/Layout';
 import Link from 'next/link';
 // import {Element, Events, animateScroll as scroll, scroller} from 'react-scroll';
 
-const getProjects = () => {
-    return [
-        {
-            id: 'mentormatch',
-            title: 'MentorMatch',
-            technologies: ['GraphQL', 'React', 'Node', 'Bookshelf', 'Knex', 'PostgreSQL']
-        },
-        {id: 'scrapetheprez', title: 'ScrapeThePrez', technologies: ['Python', 'Firebase']},
-        {id: 'tricone', title: 'Tricone', technologies: ['Arduino BLE']},
-        {id: 'garbadoor', title: 'GarbaDoor', technologies: ['Python', 'React', 'Arduino', 'Firebase']},
-        {id: 'cantrip', title: 'CanTrip', technologies: ['Java', 'Firebase']},
-        {id: 'test6', title: 'Project 6', technologies: ['React']}
-    ];
-};
-
 const getJobs = () => {
     return [
         {title: 'Web Developer', location: 'Boston, MA', company: 'WHOOP', dates: 'January 2020 - Present'},
@@ -134,12 +119,10 @@ class Index extends React.Component {
     // }
 
     static async getInitialProps() {
-        const projectData = getProjects();
         const jobData = getJobs();
         const interestData = getInterests();
 
         return {
-            projects: projectData.map(entry => entry),
             jobs: jobData.map(entry => entry),
             interests: interestData.map(entry => entry),
         };
@@ -148,7 +131,7 @@ class Index extends React.Component {
     render() {
         return (
             <>
-                <Layout />
+                <Layout page="Home"/>
                 {/*<div className="content">*/}
                 {/*    <Layout>*/}
                 {/*        <div className="text-container">*/}
@@ -179,14 +162,6 @@ class Index extends React.Component {
                 {/*            /!*    <img src={require('/static/christmas_nicole.jpeg')} alt="nicole picture" />*!/*/}
                 {/*            /!*</div>*!/*/}
                 {/*        </div>*/}
-                {/*        <Element name="projects" className="container">*/}
-                {/*            <div className="container-title">Projects</div>*/}
-                {/*            <div className="projects">*/}
-                {/*                {getProjects().map(project => (*/}
-                {/*                    <ProjectLink key={project.id} project={project}/>*/}
-                {/*                ))}*/}
-                {/*            </div>*/}
-                {/*        </Element>*/}
                 {/*        <Element name="jobs" className="container">*/}
                 {/*            <div className="container-title">Experience</div>*/}
                 {/*            <div className="jobs">*/}

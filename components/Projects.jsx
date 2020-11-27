@@ -47,16 +47,23 @@ const ProjectLink = ({project}) => {
 
 const Projects = (props) => {
     return (
-        <div className="container">
-            <div className="container-header">
-                <div className="container-title">Projects</div>
+        <>
+            <div className="container">
+                <div className="construction">
+                    <p>This page is still under construction! Visit some other ones instead.</p>
+                </div>
+                <div className="in-progress">
+                    <div className="container-header">
+                        <div className="container-title">Projects</div>
+                    </div>
+                    <div className="projects">
+                        {getProjects().map(project => (
+                            <ProjectLink key={project.id} project={project}/>
+                        ))}
+                    </div>
+                </div>
             </div>
-            <div className="projects">
-                {getProjects().map(project => (
-                    <ProjectLink key={project.id} project={project}/>
-                ))}
-            </div>
-        </div>
+        </>
     );
 }
 
