@@ -2,6 +2,8 @@ import Link from 'next/link';
 import React, {Component} from 'react';
 import NicoleBurger from '../public/beanie_cartoon_nicole_faceshot.png';
 import NicoleBurgerHover from '../public/beanie_cartoon_nicole_faceshot_red_full.png';
+import NicoleBurgerWhite from '../public/beanie_cartoon_nicole_faceshot_white.png';
+import NicoleBurgerHoverWhite from '../public/beanie_cartoon_nicole_faceshot_white_full.png';
 import Footer from "./Footer";
 
 class Header extends Component {
@@ -48,10 +50,17 @@ class Header extends Component {
                 </div>
 
                 <div className="hamburger" onClick={this.toggleMenu}>
+                    {this.state.showMenu ?
+                    <a>
+                        <img className="nicole-burger" src={NicoleBurgerWhite} alt="Menu"/>
+                        <img className="nicole-burger-hover" src={NicoleBurgerHoverWhite} alt="Menu Hovered"/> 
+                    </a> 
+                    :
                     <a>
                         <img className="nicole-burger" src={NicoleBurger} alt="Menu"/>
                         <img className="nicole-burger-hover" src={NicoleBurgerHover} alt="Menu Hovered"/>
                     </a>
+                    }
                     {/* save for mobile */}
                     <span className="ham-bar"/>
                     <span className="ham-bar"/>

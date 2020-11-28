@@ -35,6 +35,11 @@ body {
   display: flex;
   flex-direction: column;
   min-height: 95vh;
+
+  
+  a:hover {
+    background-color: yellow;
+  }
 }
 
 .hello-container {
@@ -101,33 +106,54 @@ body {
     font-size: 16pt;
   }
 
+  .page-link {
+    width: 190px;
+  }
+   
+  .page-link:hover {
+    background-color: yellow;
+    opacity: 50%;
+  }
+  
+  .landing-text {
+    text-align: left;
+    margin: 10% 0 0 10%;
+    padding: 2% 0;
+  }
 
   @media (max-width: $phone) {
-    text-align: center;
     padding: 0;
-    margin: 15% auto;
+
+    .landing-text {
+      width: auto;
+      margin: 10% 0;
+      text-align: center;
+
+      .website-title {
+        width: auto;
+      }
+    }
 
     .website-title h1 {
       font-size: 24pt;
     }
 
     .social-icons {
-      position: absolute;
-      left: 0;
-      bottom: 0;
       margin-top: 50vh;
-      padding: 5% 0 20%;
+      padding: 5% 0 40%;
       width: 100%;
       background-color: $primary;
       justify-content: center;
     }
-  }
-}
 
-.landing-text {
-  text-align: left;
-  margin: 10% 0 0 10%;
-  padding: 2% 0;
+    .page-link {
+      display: none;
+    }
+
+    .nicole-logo {
+      transform: translate(0, 75%);
+    }
+  }
 }
 
 .landing-title {
@@ -161,6 +187,11 @@ body {
       color: $primary;
       font-size: 50px;
       font-weight: bold;
+
+      @media (max-width: $phone) {
+        font-size: 30pt;
+        margin-top: 15%;
+      }
     }
   }
 
@@ -200,7 +231,7 @@ body {
 
     @media (max-width: $phone) {
       grid-template-columns: 100%;
-      grid-template-rows: 15%;
+      grid-template-rows: 50% 50%;
     }
 
     a {
@@ -300,7 +331,14 @@ body {
   }
 }
 
+.image-container {
+  border-radius: 10px;
+  // transition: box-shadow 0.2s ease 0s;
+  // animation: 1.5s cubic-bezier(0.645, 0.045, 0.355, 1) 0.2s 1 normal forwards running foFgAf, 1.5s linear 1 normal forwards running bcCCNc;
+}
+
 .page {
+  box-shadow: rgba(146, 142, 125, 0.2) 0 10px 20px;
   display: block;
   min-height: 80vh;
   position: relative;
@@ -327,6 +365,7 @@ body {
   }
 
   img {
+    border-radius: 12%;
     max-width: 500px;
     max-height: 500px;
     padding-right: 3%;
@@ -336,6 +375,34 @@ body {
     justify-content: center;
     display: flex;
     flex-direction: row;
+  }
+  
+  @media (max-width: $phone) {
+    margin-top: 10%;
+
+    h1 {
+      font-size: 24pt;
+    }
+
+    .page-header {
+      text-align: center;
+      display: block;
+    }
+
+    img {
+      max-width: 300px;
+      max-height: 300px;
+    }
+  }
+}
+
+@media (max-width: $phone) {
+  .layout {
+    height: 100%;
+  }
+
+  .text-container {
+    max-width: 100%;
   }
 }
 

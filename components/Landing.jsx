@@ -32,8 +32,9 @@ const Landing = ({ page }) => (
             <div name="about" className="page">
                 <h1>Welcome to my world!</h1>
                 <div className="page-header">
-                    <img className="nicole-picture" src={NicolePicture} alt="Picture of Nicole"/>
-
+                    <div className="image-container">
+                        <img className="nicole-picture" src={NicolePicture} alt="Picture of Nicole"/>
+                    </div>
                     <div className="text-container">
                         <h2>Hi, I'm Nicole Danuwidjaja. </h2>
                         <p>I'm an aspiring software engineer, entrepreneur, and thinker. I'm currently a junior at Northeastern University studying Computer Science and Business Administration. I will be interning at <a href="https://www.datadoghq.com/">Datadog</a> in New York City as a Software Engineering Intern for Winter-Spring 2021.</p>

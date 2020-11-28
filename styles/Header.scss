@@ -89,6 +89,8 @@
   }
 
   @media (max-width: $phone) {
+    right: 8%;
+    top: -17%;
     .ham-bar {
       display: block;
       height: 4px;
