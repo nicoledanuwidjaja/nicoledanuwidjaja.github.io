@@ -6,15 +6,11 @@ body {
   font-family: $header-font;
 }
 
-.layout::before {
-  content: "";
-  margin-top: 100%;
-}
-
 .layout {
   height: 100vh;
   width: 100vw;
   display: flex;
+  flex-direction: column;
   animation-name: fadeInName;
   animation-iteration-count: 1;
   animation-timing-function: ease-in;
@@ -65,7 +61,6 @@ body {
   animation-iteration-count: 1;
   animation-timing-function: ease-in;
   animation-duration: 1s;
-  overflow-y: hidden;
 
   .website-title {
     max-width: 500px;
@@ -151,7 +146,7 @@ body {
     }
 
     .nicole-logo {
-      transform: translate(0, 75%);
+      transform: translate(130%, 75%);
     }
   }
 }
@@ -220,42 +215,12 @@ body {
     justify-items: center;
     background-color: $background;
 
-    @media (max-width: $laptop) {
-      grid-template-columns: 33% 33% 33%;
-    }
-
-    @media (max-width: $hybrid) {
-      grid-template-columns: 50% 50%;
-      grid-template-rows: 33% 33%;
-    }
-
-    @media (max-width: $phone) {
-      grid-template-columns: 100%;
-      grid-template-rows: 50% 50%;
-    }
-
     a {
       font-size: 30px;
     }
 
     p {
       font-size: 12pt;
-    }
-
-    .project-info {
-      display: block;
-
-      .project-name {
-        text-align: left;
-        font-family: $core-font;
-        font-size: 35px;
-        font-weight: bold;
-        padding: 2% 10%;
-
-        a {
-          color: black;
-        }
-      }
     }
 
     .project-container {
@@ -278,6 +243,10 @@ body {
         height: 80%;
         max-width: 280px;
 
+        @media(max-width: $phone) {
+          height: 60%;
+        }
+
         img {
           position: relative;
           max-width: 100%;
@@ -288,6 +257,32 @@ body {
       .project-pic:hover {
         cursor: pointer;
         transition: all 250ms ease;
+      }
+
+      .project-info {
+        display: block;
+
+        @media(max-width: $phone) {
+          line-height: 1.5em;
+        }
+  
+        .project-name {
+          text-align: left;
+          font-family: $core-font;
+          font-size: 35px;
+          font-weight: bold;
+          padding: 2% 10%;
+
+          @media(max-width: $phone) {
+            a {
+              font-size: 24px;
+            }
+          }
+  
+          a {
+            color: black;
+          }
+        }
       }
     }
 
@@ -326,6 +321,25 @@ body {
           letter-spacing: 2px;
           line-height: 7px;
         }
+      }
+    }
+
+    @media (max-width: $laptop) {
+      grid-template-columns: 33% 33% 33%;
+    }
+
+    @media (max-width: $hybrid) {
+      grid-template-columns: 50% 50%;
+      grid-template-rows: 33% 33%;
+    }
+
+    @media (max-width: $phone) {
+      grid-template-columns: 100%;
+      grid-template-rows: 25% 25% 25% 25%;
+      
+      .project-container {
+        height: 150px;
+        margin: 0;
       }
     }
   }
@@ -380,6 +394,10 @@ body {
   @media (max-width: $phone) {
     margin-top: 10%;
 
+    .scroll-horizontal {
+      display: none;
+    }
+
     h1 {
       font-size: 24pt;
     }
@@ -398,7 +416,16 @@ body {
 
 @media (max-width: $phone) {
   .layout {
-    height: 100%;
+    height: auto;
+    flex-direction: column;
+  }
+
+  .landing-container {
+    overflow-y: auto;
+  }
+  
+  .container {
+    height: auto;  
   }
 
   .text-container {

@@ -118,9 +118,11 @@
   animation-timing-function: ease-in;
   animation-duration: 0.5s;
   z-index: 100;
+  overflow-y: hidden;
 }
 
 .menu-container {
+  z-index: 10;
   transition: opacity 0.5s;
   position: absolute;
   display: table;

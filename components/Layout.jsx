@@ -3,6 +3,7 @@ import Landing from './Landing';
 import Projects from './Projects';
 import Head from 'next/head';
 import HorizontalScroll from 'react-scroll-horizontal'
+import { BrowserView, MobileView, isBrowser, isMobile } from "react-device-detect";
 
 const child = { width: `100vh`, height: `100%`}
 
@@ -20,11 +21,25 @@ const Layout = props => (
             <meta name="viewport" content="initial-scale=1.0, width=device-width"/>
         </Head>
         {(props.page === "Home") ?
-            <HorizontalScroll>
-                <Header style={child} />
-                <Landing page={props.page} style={child} />
-                <Projects style={child} />
-            </HorizontalScroll>
+        <>
+            {isBrowser &&
+                <>
+                <HorizontalScroll>
+                    <Header style={child} />
+                    <Landing page={props.page} style={child} />
+                    <Projects style={child} />
+                </HorizontalScroll>
+                </>
+            }
+            {isMobile &&
+                <> 
+                    <HorizontalScroll />
+                    <Header style={child} />
+                    <Landing page={props.page} style={child} />
+                    <Projects style={child} />
+                </>
+            }
+        </>
         :
         <>
             <Header style={child} />
