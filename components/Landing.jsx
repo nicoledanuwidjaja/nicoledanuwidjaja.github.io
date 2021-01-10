@@ -37,11 +37,19 @@ const Landing = ({ page }) => (
                     </div>
                     <div className="text-container">
                         <h2>Hi, I'm Nicole Danuwidjaja. </h2>
-                        <p>I'm an aspiring software engineer, entrepreneur, and thinker. I'm currently a junior at Northeastern University studying Computer Science and Business Administration. I will be interning at <a href="https://www.datadoghq.com/">Datadog</a> in New York City as a Software Engineering Intern for Winter-Spring 2021.</p>
+                        <p>I'm an aspiring software engineer, entrepreneur, and thinker. I'm a junior at Northeastern University studying Computer Science and Business Administration, graduating in April 2022.</p>
+                        <p>Find me working as a Software Engineering Intern at:
+                            <li><a href="https://www.datadoghq.com/">Datadog</a> in New York City (Winter-Spring 2021)</li>
+                            <li><a href="https://www.salesforce.com/">Salesforce</a> in San Francisco (Summer 2021)</li>
+                        </p>
                         <p>This website is my personal online home. Feel free to look around!</p>
                     </div>
                 </div>
-                
+                <div className="button-container">
+                    <button class="button" type="button">Experience</button>
+                    <button class="button" type="button">Projects</button>
+                    <button class="button" type="button">Timeline</button>
+                </div>
             </div>
         }
         <div className="background">
