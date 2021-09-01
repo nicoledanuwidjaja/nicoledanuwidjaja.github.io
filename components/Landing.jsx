@@ -5,6 +5,8 @@ import SpotifyLogo from "../public/spotify.png";
 import RedBackground from '../public/red_strip.svg';
 import NicoleIcon from '../public/beanie_cartoon_nicole.png';
 import NicolePicture from '../public/christmas_nicole.jpeg';
+import Link from "next/link";
+import { getJobs, JobLink } from "../pages/jobs";
 
 const Landing = ({ page }) => (
     <div className="landing-container">
@@ -28,27 +30,52 @@ const Landing = ({ page }) => (
                     <a href='/about'><p>>Who am I?</p></a>
                 </div>
             </div>
-        : 
+        :
             <div name="about" className="page">
-                <h1>Welcome to my world!</h1>
-                <div className="page-header">
-                    <div className="image-container">
-                        <img className="nicole-picture" src={NicolePicture} alt="Picture of Nicole"/>
-                    </div>
-                    <div className="text-container">
-                        <h2>Hi, I'm Nicole Danuwidjaja. </h2>
-                        <p>I'm an aspiring software engineer, entrepreneur, and thinker. I'm a junior at Northeastern University studying Computer Science and Business Administration, graduating in April 2022.</p>
-                        <p>Find me working as a Software Engineering Intern at:
-                            <li><a href="https://www.datadoghq.com/">Datadog</a> in New York City (Winter-Spring 2021)</li>
-                            <li><a href="https://www.salesforce.com/">Salesforce</a> in San Francisco (Summer 2021)</li>
-                        </p>
-                        <p>This website is my personal online home. Feel free to look around!</p>
-                    </div>
+                <div className="page-container">
+                    { (page === "About") ? 
+                    <>
+                        <div className="page-title">
+                            <h1>Welcome to my world!</h1>
+                        </div>
+                        <div className="page-header">
+                            <div className="image-container">
+                                <img className="nicole-picture" src={NicolePicture} alt="Picture of Nicole"/>
+                            </div>
+                            <div className="text-container">
+                                <h2>Hi, I'm Nicole Danuwidjaja. </h2>
+                                <p>I love technology, writing, and the color red. This website serves as my personal online collection of things that I enjoy.</p>
+                            </div>
+                        </div>
+                        <div className="content-center">
+
+                        </div>
+                    </>
+                    : 
+                    <>
+                      <div className="page-title">
+                            <h1>Experience</h1>
+                        </div>
+                        <div className="page-header">
+                            <div className="jobs">
+                               {getJobs().map(job => (
+                                    <JobLink key={job.id} job={job}/>
+                                ))}
+                            </div>
+                        </div>
+                    </>
+                    }
                 </div>
                 <div className="button-container">
-                    <button class="button" type="button">Experience</button>
-                    <button class="button" type="button">Projects</button>
-                    <button class="button" type="button">Timeline</button>
+                    <Link href="/jobs">
+                        <button className="button" type="button">Experience</button>
+                    </Link>
+                    <Link href="/">
+                        <button className="button" type="button">Projects</button>
+                    </Link>
+                    <Link href="/">
+                        <button className="button" type="button">Writings</button>
+                    </Link>
                 </div>
             </div>
         }

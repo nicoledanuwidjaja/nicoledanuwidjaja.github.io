@@ -36,14 +36,14 @@ class Header extends Component {
 
     render() {
         return (
-            <div className="header">
-                <div className={this.state.showMenu ? 'menu open' : 'menu'}>
+            <div className={`header ${this.state.showMenu ? 'open' : ''}`}>
+                <div className={`menu ${this.state.showMenu ? 'open' : ''}`}>
                     <div className="menu-container">
                         <ul className="menu-items">
                             <li className="menu-item"><a href="/">Home</a></li>
                             <li className="menu-item"><a href="/about">About</a></li>
-                            <li className="menu-item"><a href="#">Blog</a></li>
-                            <li className="menu-item"><a href="#">Experience</a></li>
+                            <li className="menu-item"><a href="#">Writings</a></li>
+                            <li className="menu-item"><a href="/jobs">Experience</a></li>
                         </ul>
                         <Footer/>
                     </div>

@@ -3,83 +3,7 @@ import Layout from '../components/Layout';
 import Link from 'next/link';
 // import {Element, Events, animateScroll as scroll, scroller} from 'react-scroll';
 
-const getJobs = () => {
-    return [
-        {title: 'Web Developer', location: 'Boston, MA', company: 'WHOOP', dates: 'January 2020 - Present'},
-        {
-            title: 'Research Assistant',
-            location: 'Boston, MA',
-            company: 'IoT Open Innovation Lab',
-            dates: 'December 2018 - Present'
-        },
-        {
-            title: 'Coding Teacher',
-            location: 'Sacramento, CA',
-            company: 'St. Francis High School',
-            dates: 'June 2017 - July 2018'
-        }
-    ];
-};
-
-const getInterests = () => {
-    return [
-        "blockchain technology",
-        "education",
-        "robotics",
-        "web/mobile app development",
-        "chess",
-        "video editing",
-        "logo design",
-        "writing",
-        "puzzles"
-    ];
-};
-
-const ProjectLink = ({project}) => (
-    <div className="project-container">
-        <Link href="/project/[id]" as={`/project/${project.id}`}>
-            <div className="project-pic"/>
-        </Link>
-        <div className="project-info">
-            <div className="project-name">
-                <a>{project.title}</a>
-            </div>
-            <div className="caption-container">
-                {project.technologies.map((technology) =>
-                    <div className="project-caption">
-                        <p>{technology}</p>
-                    </div>
-                )}
-            </div>
-        </div>
-    </div>
-);
-
-const JobLink = ({job}) => (
-    <div className="job-title">
-        <li>
-            <div className="col-md-8">
-                <div className="job-company">
-                    <h3>{job.company}</h3>
-                </div>
-                <div className="job-name">
-                    <a>{job.title}</a>
-                </div>
-            </div>
-            <div className="col-md-4">
-                <div className="job-location">
-                    <p>{job.location}</p>
-                </div>
-                <div className="job-dates">
-                    <p>{job.dates}</p>
-                </div>
-            </div>
-        </li>
-    </div>
-);
-
 class Index extends React.Component {
-
     // constructor(props) {
     //     super(props);
     //     this.scrollToTop = this.scrollToTop.bind(this);
@@ -118,15 +42,15 @@ class Index extends React.Component {
     //         }));
     // }
 
-    static async getInitialProps() {
-        const jobData = getJobs();
-        const interestData = getInterests();
+    // static async getInitialProps() {
+    //     const jobData = getJobs();
+    //     const interestData = getInterests();
 
-        return {
-            jobs: jobData.map(entry => entry),
-            interests: interestData.map(entry => entry),
-        };
-    };
+    //     return {
+    //         jobs: jobData.map(entry => entry),
+    //         interests: interestData.map(entry => entry),
+    //     };
+    // };
 
     render() {
         return (
