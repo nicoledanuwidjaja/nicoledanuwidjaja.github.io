@@ -10,15 +10,16 @@ import salesforce from '../public/salesforce.png';
 
 export const getJobs = () => {
     return [
-        {title: 'Software Engineering Intern', location: 'San Francisco, CA', company: 'Salesforce', dates: 'June 2021 - August 2021', image: salesforce, link: 'https://salesforce.com/'},
-        {title: 'Software Engineering Intern', location: 'New York City, NY', company: 'Datadog', dates: 'January 2021 - May 2021', image: datadog, link: 'https://www.datadoghq.com/'},
-        {title: 'Software Engineering Intern', location: 'Los Angeles, CA', company: 'Zwift', dates: 'July 2020 - October 2020', image: zwift, link: 'https://zwift.com/'},
-        {title: 'Web Developer Co-op', location: 'Boston, MA', company: 'WHOOP', dates: 'January 2020 - June 2020', image: whoop, link: 'http://whoop.com/'},
+        {title: 'Software Engineering Intern', location: 'San Francisco, CA', company: 'Salesforce', dates: 'June 2021 - August 2021', id: 'salesforce', image: salesforce, link: 'https://salesforce.com/'},
+        {title: 'Software Engineering Intern', location: 'New York City, NY', company: 'Datadog', dates: 'January 2021 - May 2021', id: 'datadog', image: datadog, link: 'https://www.datadoghq.com/'},
+        {title: 'Software Engineering Intern', location: 'Los Angeles, CA', company: 'Zwift', dates: 'July 2020 - October 2020', id: 'zwift', image: zwift, link: 'https://zwift.com/'},
+        {title: 'Web Developer Co-op', location: 'Boston, MA', company: 'WHOOP', dates: 'January 2020 - June 2020', id: 'whoop', image: whoop, link: 'http://whoop.com/'},
         {
             title: 'Research Assistant',
             location: 'Boston, MA',
             company: 'IoT Open Innovation Lab',
-            dates: 'December 2018 - Present',
+            dates: 'December 2018 - December 2019',
+            id: 'iot_lab',
             image: iot_lab,
             link: 'https://alpha.iotopeninnovation.org/',
         },
@@ -27,6 +28,7 @@ export const getJobs = () => {
             location: 'Sacramento, CA',
             company: 'St. Francis High School',
             dates: 'June 2017 - July 2018',
+            id: 'st_francis',
             image: st_francis,
             link: 'https://stfrancishs.org/',
         }

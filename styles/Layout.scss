@@ -423,6 +423,98 @@ body {
 
 }
 
+.toggle {
+    margin: auto;
+    position: relative;
+    width: 94px;
+    text-align: left;
+    user-select: none;
+    
+    &-checkbox {
+      display: none;
+    }
+
+    &-label {
+      font-size: 15px;
+      display: block;
+      overflow: hidden;
+      cursor: pointer;
+      border: 0 solid #bbb;
+      border-radius: 20px;
+      margin: 0;
+    }
+
+    &-inner {
+      display: block;
+      width: 200%;
+      margin-left: -100%;
+      transition: margin 0.3s ease-in 0s;
+
+      &:before,
+      &:after {
+        display: block;
+        float: left;
+        width: 50%;
+        height: 34px;
+        padding: 0;
+        line-height: 34px;
+        font-size: 14px;
+        color: white;
+        font-weight: bold;
+        box-sizing: border-box;
+      }
+
+      &:before {
+        content: "Fun";
+        text-transform: uppercase;
+        padding-left: 10px;
+        background-color: $background;
+        color: #fff;
+      }
+    }
+
+    &-disabled {
+      background-color: #ddd;
+      cursor: not-allowed;
+
+      &:before {
+        background-color: #ddd;
+        cursor: not-allowed;
+      }
+    }
+
+    &-inner:after {
+      content: "Work";
+      text-transform: uppercase;
+      padding-right: 10px;
+      background-color: #bbb;
+      color: #fff;
+      text-align: right;
+    }
+
+    &-switch {
+      width: 30px;
+      margin: 2px;
+      background: #fff;
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      right: 60px;
+      border: 0 solid #bbb;
+      border-radius: 30px;
+      transition: all 0.3s ease-in 0s;
+    }
+
+    &-checkbox:checked + &-label {
+      .toggle-inner {
+        margin-left: 0;
+      }
+      .toggle-switch {
+        right: 0px;
+      }
+    }
+  }
+
 .page {
   color: black;
   min-height: 100vh;
@@ -440,6 +532,7 @@ body {
     box-shadow: rgba(92, 85, 54, 0.2) 0 15px 35px;
     border-radius: 8px;
     border: 1px solid $primary;
+    transition: all 250ms ease-in-out;
 
     .page-title {
       text-align: center;
@@ -500,9 +593,22 @@ body {
   }
 }
 
-.jobs {
+.jobs-container {
   height: auto;
   
+  .jobs {
+    opacity: 0%;
+    margin-right: -500px;
+    animation: slide 0.5s forwards;
+    @keyframes slide {
+        100% {
+            opacity: 100%;
+            // z-index: 1;
+            margin-right: 0; 
+        }
+    }
+  }
+
   .job {
     cursor: pointer;
     display: flex;
@@ -512,7 +618,6 @@ body {
     padding-left: calc(10vw);
     padding-right: calc(10vw);
     height: 150px;
-    transition: all 250ms ease;
 
     @media (max-width: $phone) {
         padding-left: 25px;
