@@ -601,11 +601,11 @@ body {
     margin-right: -500px;
     animation: slide 0.5s forwards;
     @keyframes slide {
-        100% {
-            opacity: 100%;
-            // z-index: 1;
-            margin-right: 0; 
-        }
+      100% {
+        opacity: 100%;
+        // z-index: 1;
+        margin-right: 0; 
+      }
     }
   }
 
@@ -620,8 +620,8 @@ body {
     height: 150px;
 
     @media (max-width: $phone) {
-        padding-left: 25px;
-        padding-right: 25px;
+      padding-left: 25px;
+      padding-right: 25px;
     }
 
     &:hover {
@@ -662,6 +662,21 @@ body {
 
     }
   }
+}
+
+.posts {
+  width: 100%;
+  list-style: none;
+  padding: 5%;
+  margin: 0;
+}
+
+.post-header {
+  margin: 0 0 1.25rem;
+}
+
+.post-subheader {
+  color: #666;
 }
 
 @media (max-width: $phone) {
