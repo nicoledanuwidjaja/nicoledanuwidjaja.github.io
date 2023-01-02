@@ -26,7 +26,7 @@ const Layout = props => (
                 <>
                 <HorizontalScroll>
                     <Header style={child} />
-                    <Landing page={props.page} style={child} />
+                    <Landing page={props.page} style={child} {...props} />
                     <Projects style={child} />
                 </HorizontalScroll>
                 </>
@@ -35,7 +35,7 @@ const Layout = props => (
                 <> 
                     <HorizontalScroll />
                     <Header style={child} />
-                    <Landing page={props.page} style={child} />
+                    <Landing page={props.page} style={child} {...props} />
                     <Projects style={child} />
                 </>
             }
@@ -43,7 +43,7 @@ const Layout = props => (
         :
         <>
             <Header style={child} />
-            <Landing page={props.page} style={child} />
+            <Landing page={props.page} style={child} {...props} />
         </>
         }
         {props.children}

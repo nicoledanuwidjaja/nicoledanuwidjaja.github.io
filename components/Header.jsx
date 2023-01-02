@@ -42,7 +42,7 @@ class Header extends Component {
                         <ul className="menu-items">
                             <li className="menu-item"><a href="/">Home</a></li>
                             <li className="menu-item"><a href="/about">About</a></li>
-                            <li className="menu-item"><a href="#">Writings</a></li>
+                            <li className="menu-item"><a href="/blog">Writings</a></li>
                             <li className="menu-item"><a href="/jobs">Experience</a></li>
                         </ul>
                         <Footer/>

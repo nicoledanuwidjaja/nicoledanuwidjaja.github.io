@@ -10,6 +10,7 @@ import salesforce from '../public/salesforce.png';
 
 export const getJobs = () => {
     return [
+        {title: 'Software Engineer', location: 'New York City, NY', company: 'Datadog', dates: 'August 2022 - Present', id: 'now', image: datadog, link: 'https://www.datadoghq.com/'},
         {title: 'Software Engineering Intern', location: 'San Francisco, CA', company: 'Salesforce', dates: 'June 2021 - August 2021', id: 'salesforce', image: salesforce, link: 'https://salesforce.com/'},
         {title: 'Software Engineering Intern', location: 'New York City, NY', company: 'Datadog', dates: 'January 2021 - May 2021', id: 'datadog', image: datadog, link: 'https://www.datadoghq.com/'},
         {title: 'Software Engineering Intern', location: 'Los Angeles, CA', company: 'Zwift', dates: 'July 2020 - October 2020', id: 'zwift', image: zwift, link: 'https://zwift.com/'},
@@ -87,10 +88,20 @@ export const ProjectLink = ({project}) => (
 
 class Jobs extends React.Component {
     render() {
-      return(
-          <Layout page="Jobs"/>
-      );
+        return(
+            <Layout page="Jobs" jobs={this.props.jobs} />
+        );
     }
-  }
+}
+
+export async function getStaticProps() {
+    const jobData = getJobs();
+
+    return {
+        props: {
+            jobs: jobData,
+        }
+    }
+}
 
 export default Jobs;

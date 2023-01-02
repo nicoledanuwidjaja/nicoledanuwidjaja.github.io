@@ -6,7 +6,8 @@ import RedBackground from '../public/red_strip.svg';
 import NicoleIcon from '../public/beanie_cartoon_nicole.png';
 import NicolePicture from '../public/christmas_nicole.jpeg';
 import Link from "next/link";
-import { getJobs, JobLink } from "../pages/jobs";
+import { JobLink } from "../pages/jobs";
+import Date from '../utils/date';
 
 const Home = () => (
     <div className="landing-text">
@@ -31,8 +32,7 @@ const Home = () => (
 );
 
 const Landing = (props) => {
-    const { page, interests } = props;
-    const jobs = getJobs();
+    const { page, jobs, posts, interests } = props;
     const [toggled, setToggle] = useState(false);
     
     return(
@@ -42,7 +42,7 @@ const Landing = (props) => {
             :
                 <div name="about" className="page">
                     <div className="page-container">
-                        { (page === "About") ? 
+                        { (page === "About") &&  
                             <>
                                 <div className="page-title">
                                     <h1>Welcome to my world!</h1>
@@ -60,35 +60,56 @@ const Landing = (props) => {
 
                                 </div>
                             </>
-                        : 
-                        <>
-                            <div className="page-title">
-                                <h1>Experience</h1>
-                                <div className="toggle">
-                                    <input type="checkbox" className="toggle-checkbox" 
-                                    onChange={() => setToggle(!toggled)}
-                                    id="toggle" />
-                                    <label className="toggle-label" htmlFor="toggle">
-                                        <span className="toggle-inner"></span>
-                                        <span className="toggle-switch"></span>
-                                    </label>
+                        }
+                        { (page === "Jobs") &&
+                            <>
+                                <div className="page-title">
+                                    <h1>Experience</h1>
+                                    <div className="toggle">
+                                        <input type="checkbox" className="toggle-checkbox" 
+                                        onChange={() => setToggle(!toggled)}
+                                        id="toggle" />
+                                        <label className="toggle-label" htmlFor="toggle">
+                                            <span className="toggle-inner"></span>
+                                            <span className="toggle-switch"></span>
+                                        </label>
+                                    </div>
                                 </div>
-                            </div>
-                            <div className="page-header">
-                                <div className="jobs-container">
-                                    { toggled ? 
-                                        <div>
-                                        </div>
-                                        :
-                                        <div className="jobs">
-                                            {jobs && jobs.map(job => (
-                                                <JobLink key={job.id} job={job}/>
-                                            ))} 
-                                        </div>
-                                    }
+                                <div className="page-header">
+                                    <div className="jobs-container">
+                                        { toggled ? 
+                                            <div>
+                                            </div>
+                                            :
+                                            <div className="jobs">
+                                                {jobs && jobs.map(job => (
+                                                    <JobLink key={job.id} job={job}/>
+                                                ))} 
+                                            </div>
+                                        }
+                                    </div>
                                 </div>
-                            </div>
-                        </>
+                            </>
+                        }
+                        { (page === "Blog") &&
+                            <>
+                                <div className="page-title">
+                                    <h1>Blog</h1>
+                                </div>
+                                <div className="page-header">
+                                    <div className="posts">
+                                    {posts && posts.map(({ id, date, title }) => (
+                                        <p className="post-header" key={id}>
+                                            <Link href={`/posts/${id}`}>{title}</Link>
+                                            <br />
+                                            <small className="post-subheader">
+                                                <Date dateString={date} />
+                                            </small>
+                                        </p>
+                                    ))}
+                                    </div>
+                                </div>
+                            </>
                         }
                     </div>
                     <div className="button-container">
@@ -98,7 +119,7 @@ const Landing = (props) => {
                         <Link href="/">
                             <button className="button" type="button">Projects</button>
                         </Link>
-                        <Link href="/">
+                        <Link href="/blog">
                             <button className="button" type="button">Writings</button>
                         </Link>
                     </div>
@@ -113,13 +134,12 @@ const Landing = (props) => {
     );
 }
 
+// TODO: Update
 export async function getStaticProps() {
-    const jobData = getJobs();
     const interestData = getInterests();
 
     return {
         props: {
-            jobs: jobData,
             interests: interestData.map(entry => entry),
         }
     };
