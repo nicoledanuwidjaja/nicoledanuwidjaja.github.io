@@ -25,6 +25,7 @@
     "aos": "^2.3.4",
     "date-fns": "^2.29.3",
     "eslint-config-next": "^13.1.1",
+    "gray-matter": "^4.0.3",
     "next": "^12.3.4",
     "next-optimized-images": "^2.6.0",
     "react": "^18.2.0",

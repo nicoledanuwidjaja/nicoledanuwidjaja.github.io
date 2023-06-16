@@ -533,6 +533,7 @@ body {
     border-radius: 8px;
     border: 1px solid $primary;
     transition: all 250ms ease-in-out;
+    line-height: 1.5;
 
     .page-title {
       text-align: center;
@@ -546,7 +547,7 @@ body {
     }
 
     h1 {
-      font-size: 40pt;
+      font-size: 36pt;
       color: $primary;
       margin: 0;
     }
@@ -556,9 +557,20 @@ body {
       font-size: 30pt;
     }
 
-    p {
-      font-size: 16pt;
+    h3 {
       font-family: 'Trebuchet MS';
+      font-size: 24pt;
+    }
+
+    h4 {
+      font-family: 'Trebuchet MS';
+      font-size: 18pt;
+    }
+
+    p {
+      font-family: 'Trebuchet MS';
+      font-size: 14pt;
+      margin: 12px 0 18px 0
     }
 
     img {
@@ -566,6 +578,10 @@ body {
       max-width: 500px;
       max-height: 500px;
       padding-right: 3%;
+    }
+
+    a {
+      color: $primary;
     }
 
     .content-center {
@@ -667,8 +683,13 @@ body {
 .posts {
   width: 100%;
   list-style: none;
+  padding: 5% 0%;
+  text-align: center;
+  margin: auto;
+}
+
+.post-container {
   padding: 5%;
-  margin: 0;
 }
 
 .post-header {
@@ -680,23 +701,23 @@ body {
 }
 
 @media (max-width: $phone) {
-    .layout {
-      height: auto;
-      flex-direction: column;
-    }
+  .layout {
+    height: auto;
+    flex-direction: column;
+  }
+
+  .landing-container {
+    overflow-x: hidden;
+    overflow-y: auto;
+  }
   
-    .landing-container {
-      overflow-x: hidden;
-      overflow-y: auto;
-    }
-    
-    .container {
-      height: auto;  
-    }
-  
-    .text-container {
-      max-width: 100%;
-    }
+  .container {
+    height: auto;  
+  }
+
+  .text-container {
+    max-width: 100%;
+  }
 }
 
 // OLD STUFF HERE

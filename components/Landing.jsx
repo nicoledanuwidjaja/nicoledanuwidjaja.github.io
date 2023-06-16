@@ -98,7 +98,8 @@ const Landing = (props) => {
                         { (page === "Blog") &&
                             <>
                                 <div className="page-title">
-                                    <h1>Blog</h1>
+                                    <h1>Welcome to my blog!</h1>
+                                    <h4>You've found my secret writing spot.</h4>
                                 </div>
                                 <div className="page-header">
                                     <div className="posts">

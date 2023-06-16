@@ -5,22 +5,30 @@ import { remark } from 'remark'
 import html from 'remark-html'
 import Head from 'next/head';
 import Date from '../../utils/date';
+import Header from '../../components/Header';
 import { getPostIds } from '../blog';
 
 const postsDirectory = path.join(process.cwd(), 'posts');
+const child = { width: `100vh`, height: `100%`}
 
 const Post = ({post}) => (
-  <div className="job">
-    <Head>
-      <title>{post.title}</title>
-    </Head>
-    <article>
-      <h1 className="post-header">{post.title}</h1>
-      <div className="post-subheader">
-        <Date dateString={post.date} />
+  <div className="page">
+    <Header style={child} />
+    <div className="page-container">
+      <div className="post-container">
+        <Head>
+          <title>{post.title}</title>
+        </Head>
+        <article>
+          <h1 className="post-header">{post.title}</h1>
+          <div className="post-subheader">
+            <Date dateString={post.date} />
+          </div>
+          <div dangerouslySetInnerHTML={{ __html: post.contentHtml }} />
+        </article>
       </div>
-      <div dangerouslySetInnerHTML={{ __html: post.contentHtml }} />
-    </article>
+    </div>
+  
   </div>
 );
 
